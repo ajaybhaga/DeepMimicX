@@ -1,8 +1,10 @@
+# DeepMimicX
+
 # Summary
 
 Derivative of DeepMimic project for researching the viability of the experiments outlined below.
 
-Researchers: ajay.bhaga@gmail.com / ajay.bhaga@munvo.com
+Researcher(s): ajay.bhaga@gmail.com / ajay.bhaga@munvo.com
 
 Using referential models to drive RL-based learning goals for:
 
