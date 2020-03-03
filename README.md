@@ -5,8 +5,10 @@ Researcher Email: ajay.bhaga@gmail.com & ajay.bhaga@munvo.com
 
 Proposed experiments include using reference-based RL learning for:
 
+-> Spam-based filtering and decision trees based on reference models.
+
 -> Robotic agents with computer vision for trash collection, sorting and deposit.
 
 -> Water sample classification and recycling targeting.
 
--> Spam-based filtering and decision trees based on reference models.
+
