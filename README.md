@@ -21,9 +21,7 @@ Code accompanying the SIGGRAPH 2018 paper:
 The framework uses reinforcement learning to train a simulated humanoid to imitate a variety
 of motion skills from mocap data.
 
-Project page: https://xbpeng.github.io/projects/DeepMimic/index.html
-
-![Skills](images/teaser.png)
+Original Project page: https://xbpeng.github.io/projects/DeepMimic/index.html
 
 ## Dependencies
 
