@@ -1,3 +1,17 @@
+# Summary
+
+Derivative of DeepMimic project for researching the viability of the experiments outlined below.
+
+Researchers: ajay.bhaga@gmail.com / ajay.bhaga@munvo.com
+
+Using referential models to drive RL-based learning goals for:
+
+-> Spam messaging detection using decision-trees models.
+
+-> Robotic agents with computer vision for trash collection, sorting and deposit.
+
+-> Water classification and recycling protocol targeting.
+
 # Intro 
 
 Code accompanying the SIGGRAPH 2018 paper:
