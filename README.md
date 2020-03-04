@@ -1,8 +1,10 @@
+# DeepMimicX
+
 # Summary
 
 Derivative of DeepMimic project for researching the viability of the experiments outlined below.
 
-Researchers: ajay.bhaga@gmail.com / ajay.bhaga@munvo.com
+Researcher(s): ajay.bhaga@gmail.com / ajay.bhaga@munvo.com
 
 Using referential models to drive RL-based learning goals for:
 
@@ -19,9 +21,7 @@ Code accompanying the SIGGRAPH 2018 paper:
 The framework uses reinforcement learning to train a simulated humanoid to imitate a variety
 of motion skills from mocap data.
 
-Project page: https://xbpeng.github.io/projects/DeepMimic/index.html
-
-![Skills](images/teaser.png)
+Original Project page: https://xbpeng.github.io/projects/DeepMimic/index.html
 
 ## Dependencies
 
