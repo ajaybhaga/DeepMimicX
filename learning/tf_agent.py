@@ -91,7 +91,7 @@ class TFAgent(RLAgent):
         return res
 
     def _build_normalizers(self):
-        with self.sess.as_default(), self.graph.as_default(), tf.variable_scope(self.tf_scope):
+        with self.sess.as_default(), self.graph.as_default(), tf.compat.v1.VariableScope(self.tf_scope):
             with tf.variable_scope(self.RESOURCE_SCOPE):
                 self.s_norm = TFNormalizer(self.sess, 's_norm', self.get_state_size(), self.world.env.build_state_norm_groups(self.id))
                 self.s_norm.set_mean_std(-self.world.env.build_state_offset(self.id), 

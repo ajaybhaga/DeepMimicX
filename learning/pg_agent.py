@@ -73,7 +73,7 @@ class PGAgent(TFAgent):
         self.a_tf = tf.placeholder(tf.float32, shape=[None, a_size], name="a") # target actions
         self.g_tf = tf.placeholder(tf.float32, shape=([None, g_size] if self.has_goal() else None), name="g") # goals
 
-        with tf.variable_scope('main'):
+        with tf.compat.v1.VariableScope('main'):
             with tf.variable_scope('actor'):
                 self.actor_tf = self._build_net_actor(actor_net_name, actor_init_output_scale)
             with tf.variable_scope('critic'):
