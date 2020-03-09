@@ -2,6 +2,9 @@ import numpy as np
 from env.env import Env
 from DeepMimicCore import DeepMimicCore
 from env.action_space import ActionSpace
+from util.logger import Logger
+import time
+
 
 class DeepMimicEnv(Env):
     def __init__(self, args, enable_draw):
@@ -11,6 +14,10 @@ class DeepMimicEnv(Env):
 
         rand_seed = np.random.randint(np.iinfo(np.int32).max)
         self._core.SeedRand(rand_seed)
+
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+        Logger.print('DeepMimicX executing @ ' + current_time)
 
         self._core.ParseArgs(args)
         self._core.Init()

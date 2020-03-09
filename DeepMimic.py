@@ -272,7 +272,7 @@ def init_draw():
 
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
     glutInitWindowSize(win_width, win_height)
-    glutCreateWindow(b'DeepMimic')
+    glutCreateWindow(b'DeepMimicX')
     return
     
 def setup_draw():

@@ -26,10 +26,17 @@ void cDeepMimicCore::ParseArgs(const std::vector<std::string>& args)
 {
 	mArgParser->LoadArgs(args);
 
+    for (int i = 0; i < args.size(); i++) {
+        printf("arg[%d]: %s\n", i, args[i].c_str());
+    }
+
 	std::string arg_file = "";
 	mArgParser->ParseString("arg_file", arg_file);
+	arg_file = args[1];
+
 	if (arg_file != "")
 	{
+        printf("Loading from: %s\n", arg_file.c_str());
 		// append the args from the file to the ones from the commandline
 		// this allows the cmd args to overwrite the file args
 		bool succ = mArgParser->LoadFile(arg_file);
@@ -38,6 +45,8 @@ void cDeepMimicCore::ParseArgs(const std::vector<std::string>& args)
 			printf("Failed to load args from: %s\n", arg_file.c_str());
 			assert(false);
 		}
+	} else {
+        printf("No arg file found.\n");
 	}
 
 	mArgParser->ParseInt("num_update_substeps", mNumUpdateSubsteps);
@@ -543,6 +552,8 @@ void cDeepMimicCore::SetupScene()
 
 	std::string scene_name = "";
 	mArgParser->ParseString("scene", scene_name);
+
+    printf("Arg scene: %s\n", scene_name.c_str());
 
 	mScene = nullptr;
 	mRLScene = nullptr;

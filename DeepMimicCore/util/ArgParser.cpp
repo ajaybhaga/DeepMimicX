@@ -35,7 +35,9 @@ void cArgParser::LoadArgs(const std::vector<std::string>& arg_strs)
 
 	for (size_t i = 0; i < arg_strs.size(); ++i)
 	{
-		const std::string& str = arg_strs[i];
+        printf("Loading arg[%d]: %s\n", i, arg_strs[i].c_str());
+
+        const std::string& str = arg_strs[i];
 		if (!IsComment(str))
 		{
 			bool is_key = IsKey(str);
@@ -46,6 +48,7 @@ void cArgParser::LoadArgs(const std::vector<std::string>& arg_strs)
 					bool in_table = mTable.find(curr_key) != mTable.end();
 					if (!in_table)
 					{
+					    printf("Storing value: %s", curr_key.c_str());
 						mTable[curr_key] = vals;
 						curr_key = "";
 					}
@@ -79,6 +82,7 @@ void cArgParser::Clear()
 
 bool cArgParser::LoadFile(const std::string& file)
 {
+    printf("Loading file: %s\n", file.c_str());
 	FILE* file_ptr = cFileUtil::OpenFile(file.c_str(), "r");
 	bool succ = (file_ptr != nullptr);
 

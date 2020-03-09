@@ -46,7 +46,7 @@ void cDrawUtil::InitOffscreenDrawContext()
 	glutInit(&argc, nullptr);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(1, 1);
-	glutCreateWindow("DeepMimic");
+	glutCreateWindow("DeepMimicX");
 }
 
 bool cDrawUtil::CheckDrawContextInit()
@@ -57,6 +57,7 @@ bool cDrawUtil::CheckDrawContextInit()
 
 void cDrawUtil::InitDrawUtil()
 {
+    printf("cDrawUtil::InitDrawUtil()\n");
 	glewInit();
 
 	const GLubyte* renderer = glGetString(GL_RENDERER); // get renderer string
