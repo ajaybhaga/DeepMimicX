@@ -56,7 +56,9 @@ class RLWorld(object):
         Logger.print('')
         Logger.print('Num Agents: {:d}'.format(num_agents))
 
-        agent_files = self.arg_parser.parse_strings('agent_files')
+        # TODO: [Ajay] need to determine why agent_files is blank even though it is loaded by C++ module
+        agent_files = ['data/agents/ct_agent_humanoid_ppo.txt']
+        #agent_files = self.arg_parser.parse_strings('agent_files')
         assert(len(agent_files) == num_agents or len(agent_files) == 0)
 
         model_files = self.arg_parser.parse_strings('model_files')

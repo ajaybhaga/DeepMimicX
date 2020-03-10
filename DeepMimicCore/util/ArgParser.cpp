@@ -35,7 +35,7 @@ void cArgParser::LoadArgs(const std::vector<std::string>& arg_strs)
 
 	for (size_t i = 0; i < arg_strs.size(); ++i)
 	{
-        printf("Loading arg[%d]: %s\n", i, arg_strs[i].c_str());
+        //printf("Loading arg[%d]: %s\n", i, arg_strs[i].c_str());
 
         const std::string& str = arg_strs[i];
 		if (!IsComment(str))
@@ -48,7 +48,7 @@ void cArgParser::LoadArgs(const std::vector<std::string>& arg_strs)
 					bool in_table = mTable.find(curr_key) != mTable.end();
 					if (!in_table)
 					{
-					    printf("Storing value: %s", curr_key.c_str());
+					    printf("Storing value: %s = %s\n", curr_key.c_str(), vals[0].c_str());
 						mTable[curr_key] = vals;
 						curr_key = "";
 					}

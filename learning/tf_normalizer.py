@@ -44,9 +44,9 @@ class TFNormalizer(Normalizer):
     def _build_resource_tf(self):
         tf.compat.v1.enable_resource_variables()
 
-        self.count_tf = tf.compat.v1.get_variable(dtype=tf.int32, name='count', initializer=np.array([self.count], dtype=np.int32), trainable=False)
-        self.mean_tf = tf.compat.v1.get_variable(dtype=tf.float32, name='mean', initializer=self.mean.astype(np.float32), trainable=False)
-        self.std_tf = tf.compat.v1.get_variable(dtype=tf.float32, name='std', initializer=self.std.astype(np.float32), trainable=False)
+        self.count_tf = tf.Variable(dtype=tf.int32, name='count', initial_value=np.array([self.count], dtype=np.int32), trainable=False)
+        self.mean_tf = tf.Variable(dtype=tf.float32, name='mean', initial_value=self.mean.astype(np.float32), trainable=False)
+        self.std_tf = tf.Variable(dtype=tf.float32, name='std', initial_value=self.std.astype(np.float32), trainable=False)
         
         self.count_ph = tf.compat.v1.get_variable(dtype=tf.int32, name='count_ph', shape=[1])
         self.mean_ph = tf.compat.v1.get_variable(dtype=tf.float32, name='mean_ph', shape=self.mean.shape)

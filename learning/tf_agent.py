@@ -16,6 +16,14 @@ class TFAgent(RLAgent):
         #self.sess = tf.Session(graph=self.graph)
         self.sess = tf.compat.v1.Session(graph=self.graph)
 
+
+        model = tf.keras.applications.ResNet50()
+        #init_op = tf.global_variables_initializer()
+        #init_op = tf.global_variables_initializer()
+        #with tf.compat.v1.Session() as sess:
+    #random_image, _ = sess.run([tf.random.normal(shape=[1, 224, 224, 3]), init_op])
+    #outputs = sess.run(model.output, feed_dict={model.input:random_image})
+
         super().__init__(world, id, json_data)
         self._build_graph(json_data)
         self._init_normalizers()
