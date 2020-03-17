@@ -1,10 +1,72 @@
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 from abc import abstractmethod
 
 from learning.rl_agent import RLAgent
 from util.logger import Logger
 from learning.tf_normalizer import TFNormalizer
+
+
+# Create a custom layer for part of the model
+class AgentLayer(tf.keras.layers.Layer):
+    def __init__(self, *args, **kwargs):
+        Logger.print("init->AgentLayer")
+
+        argi = 0
+        for arg in args:
+            if (argi == 0):
+                self.sess = arg
+            if (argi == 1):
+                self.get_state_size = arg
+            if (argi == 2):
+                self.get_goal_size = arg
+            if (argi == 3):
+                self.get_action_size = arg
+
+            Logger.print("argi: " + str(argi))
+            argi = argi + 1
+
+        super(AgentLayer, self).__init__(*args, **kwargs)
+
+
+    def build(self, input_shape):
+        self.w = self.add_weight(
+            shape=input_shape[1:],
+            dtype=tf.float32,
+            initializer=tf.keras.initializers.ones(),
+            regularizer=tf.keras.regularizers.l2(0.02),
+            trainable=True)
+        Logger.print("build->AgentLayer")
+
+        with self.sess.as_default(): #, self.graph.as_default():
+            # with scope agent
+                # with scope resource
+            #with tf.variable_scope(self.RESOURCE_SCOPE):
+                #with tf.variable_scope(self.RESOURCE_SCOPE):
+            self.s_norm = TFNormalizer(self.sess, 's_norm', self.get_state_size(), self.world.env.build_state_norm_groups(self.id))
+            self.s_norm.set_mean_std(-self.world.env.build_state_offset(self.id),
+                                     1 / self.world.env.build_state_scale(self.id))
+
+            self.g_norm = TFNormalizer(self.sess, 'g_norm', self.get_goal_size(), self.world.env.build_goal_norm_groups(self.id))
+            self.g_norm.set_mean_std(-self.world.env.build_goal_offset(self.id),
+                                     1 / self.world.env.build_goal_scale(self.id))
+
+            self.a_norm = TFNormalizer(self.sess, 'a_norm', self.get_action_size())
+            self.a_norm.set_mean_std(-self.world.env.build_action_offset(self.id),
+                                     1 / self.world.env.build_action_scale(self.id))
+
+    # Call method will sometimes get used in graph mode,
+    # training will get turned into a tensor
+    @tf.function
+    def call(self, inputs, training=None):
+        if training:
+            return inputs + self.w
+        else:
+            return inputs + self.w * 0.5
+
 
 class TFAgent(RLAgent):
     RESOURCE_SCOPE = 'resource'
@@ -13,16 +75,10 @@ class TFAgent(RLAgent):
     def __init__(self, world, id, json_data):
         self.tf_scope = 'agent'
         self.graph = tf.Graph()
-        #self.sess = tf.Session(graph=self.graph)
-        self.sess = tf.compat.v1.Session(graph=self.graph)
+        self.sess = tf.Session(graph=self.graph)
 
-
-        model = tf.keras.applications.ResNet50()
-        #init_op = tf.global_variables_initializer()
-        #init_op = tf.global_variables_initializer()
-        #with tf.compat.v1.Session() as sess:
-    #random_image, _ = sess.run([tf.random.normal(shape=[1, 224, 224, 3]), init_op])
-    #outputs = sess.run(model.output, feed_dict={model.input:random_image})
+        self.agent_layer = AgentLayer(self.sess, self.get_state_size(), self.get_goal_size(), self.get_action_size())
+        #Logger.print('agent_layer([1]).numpy(): ' + self.agent_layer([1]).numpy())
 
         super().__init__(world, id, json_data)
         self._build_graph(json_data)
@@ -100,8 +156,8 @@ class TFAgent(RLAgent):
 
     def _build_normalizers(self):
 
-        with self.sess.as_default(), self.graph.as_default(), tf.compat.v1.variable_scope(self.tf_scope):
-            with tf.compat.v1.variable_scope(self.RESOURCE_SCOPE):
+        with self.sess.as_default(), self.graph.as_default(), tf.variable_scope(self.tf_scope):
+            with tf.variable_scope(self.RESOURCE_SCOPE):
             #with tf.variable_scope(self.RESOURCE_SCOPE):
                 self.s_norm = TFNormalizer(self.sess, 's_norm', self.get_state_size(), self.world.env.build_state_norm_groups(self.id))
                 self.s_norm.set_mean_std(-self.world.env.build_state_offset(self.id), 

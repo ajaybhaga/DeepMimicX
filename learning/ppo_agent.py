@@ -1,6 +1,8 @@
 import numpy as np
 import copy as copy
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from learning.pg_agent import PGAgent
 from learning.solvers.mpi_solver import MPISolver
@@ -25,7 +27,10 @@ class PPOAgent(PGAgent):
     TAR_CLIP_FRAC = "TarClipFrac"
     ACTOR_STEPSIZE_DECAY = "ActorStepsizeDecay"
 
-    def __init__(self, world, id, json_data): 
+    def __init__(self, world, id, json_data):
+        self.world = world
+        self.id = id
+        self.json_data = json_data
         super().__init__(world, id, json_data)
         return
 

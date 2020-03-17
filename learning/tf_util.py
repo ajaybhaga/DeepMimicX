@@ -1,11 +1,15 @@
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 import tensorflow_addons as tfa
 import numpy as np
 import os
 
 #xavier_initializer = tf.contrib.layers.xavier_initializer()
+init = tf.compat.v1.keras.initializers.glorot_uniform()
 
-init = tf.initializers.GlorotUniform()
+#init = tf.initializers.GlorotUniform()
 #var = tf.Variable(init(shape=shape))
 # or a oneliner with a little confusing brackets
 #xavier_initializer = tf.Variable(tf.initializers.GlorotUniform()(shape=shape))
@@ -36,8 +40,9 @@ def fc_net(input, layers_sizes, activation, reuse=None, flatten=False): # build 
         with tf.variable_scope(str(i), reuse=reuse):
             curr_tf = tf.layers.dense(inputs=curr_tf,
                                     units=size,
-                                    kernel_initializer=xavier_initializer,
+                                    kernel_initializer='glorot_uniform',
                                     activation = activation if i < len(layers_sizes)-1 else None)
+
     if flatten:
         assert layers_sizes[-1] == 1
         curr_tf = tf.reshape(curr_tf, [-1])

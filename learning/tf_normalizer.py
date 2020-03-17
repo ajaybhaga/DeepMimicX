@@ -1,6 +1,9 @@
 import numpy as np
 import copy
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 from learning.normalizer import Normalizer
 
 class TFNormalizer(Normalizer):
@@ -51,7 +54,7 @@ class TFNormalizer(Normalizer):
         self.count_ph = tf.compat.v1.get_variable(dtype=tf.int32, name='count_ph', shape=[1])
         self.mean_ph = tf.compat.v1.get_variable(dtype=tf.float32, name='mean_ph', shape=self.mean.shape)
         self.std_ph = tf.compat.v1.get_variable (dtype=tf.float32, name='std_ph', shape=self.std.shape)
-        
+
         self._update_op = tf.group(
             self.count_tf.assign(self.count_ph),
             self.mean_tf.assign(self.mean_ph),
@@ -65,5 +68,15 @@ class TFNormalizer(Normalizer):
             self.mean_ph: self.mean,
             self.std_ph: self.std
         }
-        self.sess.run(self._update_op, feed_dict=feed)
+
+        # add an Op to initialize global variables
+        init_op = tf.global_variables_initializer()
+
+        # launch the graph in a session
+        with tf.Session() as sess:
+            # run the variable initializer operation
+            self.sess.run(init_op)
+            self.sess.run(self._update_op, feed_dict=feed)
+
+    #self.sess.run(self._update_op, feed_dict=feed)
         return

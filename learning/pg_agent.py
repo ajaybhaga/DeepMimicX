@@ -1,5 +1,8 @@
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 import copy
 
 from learning.tf_agent import TFAgent
@@ -176,7 +179,7 @@ class PGAgent(TFAgent):
         
         h = NetBuilder.build_net(net_name, input_tfs)
         norm_val_tf = tf.layers.dense(inputs=h, units=1, activation=None,
-                                kernel_initializer=TFUtil.xavier_initializer);
+                                kernel_initializer='glorot_uniform');
 
         norm_val_tf = tf.reshape(norm_val_tf, [-1])
         val_tf = self.val_norm.unnormalize_tf(norm_val_tf)
