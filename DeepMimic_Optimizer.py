@@ -6,6 +6,9 @@ from util.logger import Logger
 from DeepMimic import update_world, update_timestep, build_world
 import util.mpi_util as MPIUtil
 
+#import os
+#os.environ['CUDA_VISIBLE_DEVICES'] = "1"
+
 args = []
 world = None
 

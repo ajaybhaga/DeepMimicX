@@ -158,6 +158,8 @@ void cSceneImitate::Init()
 
 	cRLSceneSimChar::Init();
 	InitJointWeights();
+
+    printf("cSceneImitate::Init() executed.\n");
 }
 
 double cSceneImitate::CalcReward(int agent_id) const

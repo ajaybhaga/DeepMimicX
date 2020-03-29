@@ -6,7 +6,7 @@ from util.logger import Logger
 
 class RLWorld(object):
     def __init__(self, env, arg_parser):
-        TFUtil.disable_gpu()
+        #TFUtil.disable_gpu()
 
         self.env = env
         self.arg_parser = arg_parser
@@ -39,10 +39,15 @@ class RLWorld(object):
     enable_training = property(get_enable_training, set_enable_training)
     
     def parse_args(self, arg_parser):
+        Logger.print('parse_args():')
+
         self.train_agents = self.arg_parser.parse_bools('train_agents')
         num_agents = self.env.get_num_agents()
         assert(len(self.train_agents) == num_agents or len(self.train_agents) == 0)
 
+        #agent_files = ['data/agents/ct_agent_humanoid_ppo.txt']
+        self.agent_files = self.arg_parser.parse_strings('agent_files')
+        Logger.print('Agent Files: %s' % self.agent_files)
         return
 
     def shutdown(self):
@@ -56,19 +61,19 @@ class RLWorld(object):
         Logger.print('')
         Logger.print('Num Agents: {:d}'.format(num_agents))
 
-        # TODO: [Ajay] need to determine why agent_files is blank even though it is loaded by C++ module
-        agent_files = ['data/agents/ct_agent_humanoid_ppo.txt']
-        #agent_files = self.arg_parser.parse_strings('agent_files')
-        assert(len(agent_files) == num_agents or len(agent_files) == 0)
+        Logger.print('Agent Files: %s' % self.agent_files)
+
+        assert(len(self.agent_files) == num_agents or len(self.agent_files) == 0)
 
         model_files = self.arg_parser.parse_strings('model_files')
         assert(len(model_files) == num_agents or len(model_files) == 0)
+
 
         output_path = self.arg_parser.parse_string('output_path')
         int_output_path = self.arg_parser.parse_string('int_output_path')
 
         for i in range(num_agents):
-            curr_file = agent_files[i]
+            curr_file = self.agent_files[i]
             curr_agent = self._build_agent(i, curr_file)
 
             if curr_agent is not None:

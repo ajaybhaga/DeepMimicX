@@ -36,9 +36,11 @@ world = None
 
 def build_arg_parser(args):
     arg_parser = ArgParser()
+    Logger.print('args: %s' % args)
     arg_parser.load_args(args)
 
     arg_file = arg_parser.parse_string('arg_file', '')
+    Logger.print('arg_file: %s' % arg_file)
     if (arg_file != ''):
         succ = arg_parser.load_file(arg_file)
         assert succ, Logger.print('Failed to load args from: ' + arg_file)

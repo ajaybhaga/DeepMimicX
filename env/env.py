@@ -10,6 +10,7 @@ class Env(ABC):
         Succ = 2
 
     def __init__(self, args, enable_draw):
+        self.args = args
         self.enable_draw = enable_draw
         return
 

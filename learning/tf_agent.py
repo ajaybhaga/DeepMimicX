@@ -1,5 +1,6 @@
 import numpy as np
 #import tensorflow as tf
+import tensorflow as tf; print(tf.__version__); tf.test.is_gpu_available(cuda_only=False,min_cuda_compute_capability=None)
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
@@ -75,7 +76,9 @@ class TFAgent(RLAgent):
     def __init__(self, world, id, json_data):
         self.tf_scope = 'agent'
         self.graph = tf.Graph()
-        self.sess = tf.Session(graph=self.graph)
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+        self.sess = tf.Session(config=config, graph=self.graph)
 
         self.agent_layer = AgentLayer(self.sess, self.get_state_size(), self.get_goal_size(), self.get_action_size())
         #Logger.print('agent_layer([1]).numpy(): ' + self.agent_layer([1]).numpy())
@@ -98,8 +101,10 @@ class TFAgent(RLAgent):
                 Logger.print("Failed to save model to: " + save_path)
         return
 
+
     def load_model(self, in_path):
         with self.sess.as_default(), self.graph.as_default():
+            Logger.print('Restoring checkpoint for model: ' + in_path)
             self.saver.restore(self.sess, in_path)
             self._load_normalizers()
             Logger.print('Model loaded from: ' + in_path)

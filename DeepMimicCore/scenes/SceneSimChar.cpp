@@ -120,6 +120,7 @@ void cSceneSimChar::Init()
 	ResolveCharGroundIntersect();
 
 	ClearObjs();
+    printf("cSceneSimChar::Init() executed.\n");
 }
 
 void cSceneSimChar::Clear()

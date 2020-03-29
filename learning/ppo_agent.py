@@ -1,6 +1,8 @@
 import numpy as np
 import copy as copy
 #import tensorflow as tf
+import tensorflow as tf; print(tf.__version__); tf.test.is_gpu_available(cuda_only=False,min_cuda_compute_capability=None)
+##hello = tf.constant('Hello, TensorFlow!');
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 

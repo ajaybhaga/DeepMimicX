@@ -11,6 +11,7 @@ cSceneKinChar::~cSceneKinChar()
 void cSceneKinChar::Init()
 {
 	bool succ = BuildCharacters();
+    printf("cSceneKinChar::Init() executed.\n");
 }
 
 void cSceneKinChar::ParseArgs(const std::shared_ptr<cArgParser>& parser)

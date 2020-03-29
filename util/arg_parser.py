@@ -1,4 +1,5 @@
 import re as RE
+from util.logger import Logger
 
 class ArgParser(object):
     global_parser = None
@@ -15,6 +16,7 @@ class ArgParser(object):
         succ = True
         vals = []
         curr_key = ''
+        Logger.print('load_args(): %s' % arg_strs)
 
         for str in arg_strs:
             if not (self._is_comment(str)):
@@ -35,9 +37,11 @@ class ArgParser(object):
 
             vals = []
 
+        Logger.print('self._table: %s' % self._table)
         return succ
 
     def load_file(self, filename):
+        Logger.print('load_file(): %s' % filename)
         succ = False
         with open(filename, 'r') as file:
             lines = RE.split(r'[\n\r]+', file.read())
@@ -48,6 +52,8 @@ class ArgParser(object):
                 if (len(line) > 0 and not self._is_comment(line)):
                     arg_strs += line.split()
 
+
+            Logger.print('arg_strs: %s' % arg_strs)
             succ = self.load_args(arg_strs)
         return succ
 
@@ -56,8 +62,11 @@ class ArgParser(object):
 
     def parse_string(self, key, default=''):
         str = default
+
+        Logger.print('Parse string -> check for key: %s' % key)
         if self.has_key(key):
             str = self._table[key][0]
+            Logger.print('Parse string -> Found string: %s' % str)
         return str
 
     def parse_strings(self, key, default=[]):
