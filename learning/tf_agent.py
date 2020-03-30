@@ -1,5 +1,8 @@
 import numpy as np
 #import tensorflow as tf
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
 import tensorflow as tf; print(tf.__version__); tf.test.is_gpu_available(cuda_only=False,min_cuda_compute_capability=None)
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
@@ -76,9 +79,20 @@ class TFAgent(RLAgent):
     def __init__(self, world, id, json_data):
         self.tf_scope = 'agent'
         self.graph = tf.Graph()
-        config = tf.ConfigProto()
-        config.gpu_options.allow_growth = True
-        self.sess = tf.Session(config=config, graph=self.graph)
+#        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction = 0.33)
+ #       gpu_options = tf.GPUOptions(allow_growth = True)
+        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.8,allow_growth=True)
+
+
+        config = tf.ConfigProto(gpu_options = gpu_options)
+        #config.gpu_options.per_process_gpu_memory_fraction = 0.2
+        #config.gpu_options.allow_growth = True
+
+        #import tensorflow as tf
+        #tf.config.gpu.set_per_process_memory_fraction(0.75)
+        #tf.config.gpu.set_per_process_memory_growth(True)
+        #session = InteractiveSession(config=config)
+        self.sess = tf.Session(config=config,graph=self.graph)
 
         self.agent_layer = AgentLayer(self.sess, self.get_state_size(), self.get_goal_size(), self.get_action_size())
         #Logger.print('agent_layer([1]).numpy(): ' + self.agent_layer([1]).numpy())
