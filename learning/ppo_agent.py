@@ -1,10 +1,11 @@
 import numpy as np
 import copy as copy
 #import tensorflow as tf
-import tensorflow as tf; print(tf.__version__); tf.test.is_gpu_available(cuda_only=False,min_cuda_compute_capability=None)
+#import tensorflow as tf; print(tf.__version__); tf.test.is_gpu_available(cuda_only=False,min_cuda_compute_capability=None)
 ##hello = tf.constant('Hello, TensorFlow!');
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 from learning.pg_agent import PGAgent
 from learning.solvers.mpi_solver import MPISolver
@@ -60,6 +61,8 @@ class PPOAgent(PGAgent):
         assert self.ACTOR_NET_KEY in json_data
         assert self.CRITIC_NET_KEY in json_data
 
+        Logger.print('[PPOAgent] Build nets -> attempting to build actor and critic nets...')
+
         actor_net_name = json_data[self.ACTOR_NET_KEY]
         critic_net_name = json_data[self.CRITIC_NET_KEY]
         actor_init_output_scale = 1 if (self.ACTOR_INIT_OUTPUT_SCALE_KEY not in json_data) else json_data[self.ACTOR_INIT_OUTPUT_SCALE_KEY]
@@ -68,64 +71,66 @@ class PPOAgent(PGAgent):
         g_size = self.get_goal_size()
         a_size = self.get_action_size()
 
-        # setup input tensors
-        self.s_tf = tf.placeholder(tf.float32, shape=[None, s_size], name="s")
-        self.a_tf = tf.placeholder(tf.float32, shape=[None, a_size], name="a")
-        self.tar_val_tf = tf.placeholder(tf.float32, shape=[None], name="tar_val")
-        self.adv_tf = tf.placeholder(tf.float32, shape=[None], name="adv")
-        self.g_tf = tf.placeholder(tf.float32, shape=([None, g_size] if self.has_goal() else None), name="g")
-        self.old_logp_tf = tf.placeholder(tf.float32, shape=[None], name="old_logp")
-        self.exp_mask_tf = tf.placeholder(tf.float32, shape=[None], name="exp_mask")
+        with tf.device('cpu:0'):
+            # setup input tensors
+            self.s_tf = tf.placeholder(tf.float32, shape=[None, s_size], name="s")
+            self.a_tf = tf.placeholder(tf.float32, shape=[None, a_size], name="a")
+            self.tar_val_tf = tf.placeholder(tf.float32, shape=[None], name="tar_val")
+            self.adv_tf = tf.placeholder(tf.float32, shape=[None], name="adv")
+            self.g_tf = tf.placeholder(tf.float32, shape=([None, g_size] if self.has_goal() else None), name="g")
+            self.old_logp_tf = tf.placeholder(tf.float32, shape=[None], name="old_logp")
+            self.exp_mask_tf = tf.placeholder(tf.float32, shape=[None], name="exp_mask")
 
-        with tf.variable_scope('main'):
-            with tf.variable_scope('actor'):
-                self.a_mean_tf = self._build_net_actor(actor_net_name, actor_init_output_scale)
-            with tf.variable_scope('critic'):
-                self.critic_tf = self._build_net_critic(critic_net_name)
-                
-        if (self.a_mean_tf != None):
-            Logger.print('Built actor net: ' + actor_net_name)
+            with tf.variable_scope('main'):
+                with tf.variable_scope('actor'):
+                    self.a_mean_tf = self._build_net_actor(actor_net_name, actor_init_output_scale)
+                with tf.variable_scope('critic'):
+                    self.critic_tf = self._build_net_critic(critic_net_name)
 
-        if (self.critic_tf != None):
-            Logger.print('Built critic net: ' + critic_net_name)
-        
-        self.norm_a_std_tf = self.exp_params_curr.noise * tf.ones(a_size)
-        norm_a_noise_tf = self.norm_a_std_tf * tf.random_normal(shape=tf.shape(self.a_mean_tf))
-        norm_a_noise_tf *= tf.expand_dims(self.exp_mask_tf, axis=-1)
-        self.sample_a_tf = self.a_mean_tf + norm_a_noise_tf * self.a_norm.std_tf
-        self.sample_a_logp_tf = TFUtil.calc_logp_gaussian(x_tf=norm_a_noise_tf, mean_tf=None, std_tf=self.norm_a_std_tf)
+            if (self.a_mean_tf != None):
+                Logger.print('[PPOAgent] Built actor net: ' + actor_net_name)
+
+            if (self.critic_tf != None):
+                Logger.print('[PPOAgent] Built critic net: ' + critic_net_name)
+
+            self.norm_a_std_tf = self.exp_params_curr.noise * tf.ones(a_size)
+            norm_a_noise_tf = self.norm_a_std_tf * tf.random_normal(shape=tf.shape(self.a_mean_tf))
+            norm_a_noise_tf *= tf.expand_dims(self.exp_mask_tf, axis=-1)
+            self.sample_a_tf = self.a_mean_tf + norm_a_noise_tf * self.a_norm.std_tf
+            self.sample_a_logp_tf = TFUtil.calc_logp_gaussian(x_tf=norm_a_noise_tf, mean_tf=None, std_tf=self.norm_a_std_tf)
 
         return
 
     def _build_losses(self, json_data):
-        actor_weight_decay = 0 if (self.ACTOR_WEIGHT_DECAY_KEY not in json_data) else json_data[self.ACTOR_WEIGHT_DECAY_KEY]
-        critic_weight_decay = 0 if (self.CRITIC_WEIGHT_DECAY_KEY not in json_data) else json_data[self.CRITIC_WEIGHT_DECAY_KEY]
-        
-        norm_val_diff = self.val_norm.normalize_tf(self.tar_val_tf) - self.val_norm.normalize_tf(self.critic_tf)
-        self.critic_loss_tf = 0.5 * tf.reduce_mean(tf.square(norm_val_diff))
+        with tf.device('cpu:0'):
+            actor_weight_decay = 0 if (self.ACTOR_WEIGHT_DECAY_KEY not in json_data) else json_data[self.ACTOR_WEIGHT_DECAY_KEY]
+            critic_weight_decay = 0 if (self.CRITIC_WEIGHT_DECAY_KEY not in json_data) else json_data[self.CRITIC_WEIGHT_DECAY_KEY]
 
-        if (critic_weight_decay != 0):
-            self.critic_loss_tf += critic_weight_decay * self._weight_decay_loss('main/critic')
-        
-        norm_tar_a_tf = self.a_norm.normalize_tf(self.a_tf)
-        self._norm_a_mean_tf = self.a_norm.normalize_tf(self.a_mean_tf)
+            norm_val_diff = self.val_norm.normalize_tf(self.tar_val_tf) - self.val_norm.normalize_tf(self.critic_tf)
+            self.critic_loss_tf = 0.5 * tf.reduce_mean(tf.square(norm_val_diff))
 
-        self.logp_tf = TFUtil.calc_logp_gaussian(norm_tar_a_tf, self._norm_a_mean_tf, self.norm_a_std_tf)
-        ratio_tf = tf.exp(self.logp_tf - self.old_logp_tf)
-        actor_loss0 = self.adv_tf * ratio_tf
-        actor_loss1 = self.adv_tf * tf.clip_by_value(ratio_tf, 1.0 - self.ratio_clip, 1 + self.ratio_clip)
-        self.actor_loss_tf = -tf.reduce_mean(tf.minimum(actor_loss0, actor_loss1))
+            if (critic_weight_decay != 0):
+                self.critic_loss_tf += critic_weight_decay * self._weight_decay_loss('main/critic')
 
-        norm_a_bound_min = self.a_norm.normalize(self.a_bound_min)
-        norm_a_bound_max = self.a_norm.normalize(self.a_bound_max)
-        a_bound_loss = TFUtil.calc_bound_loss(self._norm_a_mean_tf, norm_a_bound_min, norm_a_bound_max)
-        self.actor_loss_tf += a_bound_loss
+            norm_tar_a_tf = self.a_norm.normalize_tf(self.a_tf)
+            self._norm_a_mean_tf = self.a_norm.normalize_tf(self.a_mean_tf)
 
-        if (actor_weight_decay != 0):
-            self.actor_loss_tf += actor_weight_decay * self._weight_decay_loss('main/actor')
-        
-        # for debugging
-        self.clip_frac_tf = tf.reduce_mean(tf.to_float(tf.greater(tf.abs(ratio_tf - 1.0), self.ratio_clip)))
+            self.logp_tf = TFUtil.calc_logp_gaussian(norm_tar_a_tf, self._norm_a_mean_tf, self.norm_a_std_tf)
+            ratio_tf = tf.exp(self.logp_tf - self.old_logp_tf)
+            actor_loss0 = self.adv_tf * ratio_tf
+            actor_loss1 = self.adv_tf * tf.clip_by_value(ratio_tf, 1.0 - self.ratio_clip, 1 + self.ratio_clip)
+            self.actor_loss_tf = -tf.reduce_mean(tf.minimum(actor_loss0, actor_loss1))
+
+            norm_a_bound_min = self.a_norm.normalize(self.a_bound_min)
+            norm_a_bound_max = self.a_norm.normalize(self.a_bound_max)
+            a_bound_loss = TFUtil.calc_bound_loss(self._norm_a_mean_tf, norm_a_bound_min, norm_a_bound_max)
+            self.actor_loss_tf += a_bound_loss
+
+            if (actor_weight_decay != 0):
+                self.actor_loss_tf += actor_weight_decay * self._weight_decay_loss('main/actor')
+
+            # for debugging
+            self.clip_frac_tf = tf.reduce_mean(tf.to_float(tf.greater(tf.abs(ratio_tf - 1.0), self.ratio_clip)))
 
         return
 
@@ -134,20 +139,22 @@ class PPOAgent(PGAgent):
         actor_momentum = 0.9 if (self.ACTOR_MOMENTUM_KEY not in json_data) else json_data[self.ACTOR_MOMENTUM_KEY]
         critic_stepsize = 0.01 if (self.CRITIC_STEPSIZE_KEY not in json_data) else json_data[self.CRITIC_STEPSIZE_KEY]
         critic_momentum = 0.9 if (self.CRITIC_MOMENTUM_KEY not in json_data) else json_data[self.CRITIC_MOMENTUM_KEY]
-        
-        critic_vars = self._tf_vars('main/critic')
-        critic_opt = tf.train.MomentumOptimizer(learning_rate=critic_stepsize, momentum=critic_momentum)
-        self.critic_grad_tf = tf.gradients(self.critic_loss_tf, critic_vars)
-        self.critic_solver = MPISolver(self.sess, critic_opt, critic_vars)
 
-        self._actor_stepsize_tf = tf.get_variable(dtype=tf.float32, name='actor_stepsize', initializer=actor_stepsize, trainable=False)
-        self._actor_stepsize_ph = tf.get_variable(dtype=tf.float32, name='actor_stepsize_ph', shape=[])
-        self._actor_stepsize_update_op = self._actor_stepsize_tf.assign(self._actor_stepsize_ph)
+        with tf.device('cpu:0'):
 
-        actor_vars = self._tf_vars('main/actor')
-        actor_opt = tf.train.MomentumOptimizer(learning_rate=self._actor_stepsize_tf, momentum=actor_momentum)
-        self.actor_grad_tf = tf.gradients(self.actor_loss_tf, actor_vars)
-        self.actor_solver = MPISolver(self.sess, actor_opt, actor_vars)
+            critic_vars = self._tf_vars('main/critic')
+            critic_opt = tf.train.MomentumOptimizer(learning_rate=critic_stepsize, momentum=critic_momentum)
+            self.critic_grad_tf = tf.gradients(self.critic_loss_tf, critic_vars)
+            self.critic_solver = MPISolver(self.sess, critic_opt, critic_vars)
+
+            self._actor_stepsize_tf = tf.get_variable(dtype=tf.float32, name='actor_stepsize', initializer=actor_stepsize, trainable=False)
+            self._actor_stepsize_ph = tf.get_variable(dtype=tf.float32, name='actor_stepsize_ph', shape=[])
+            self._actor_stepsize_update_op = self._actor_stepsize_tf.assign(self._actor_stepsize_ph)
+
+            actor_vars = self._tf_vars('main/actor')
+            actor_opt = tf.train.MomentumOptimizer(learning_rate=self._actor_stepsize_tf, momentum=actor_momentum)
+            self.actor_grad_tf = tf.gradients(self.actor_loss_tf, actor_vars)
+            self.actor_solver = MPISolver(self.sess, actor_opt, actor_vars)
         
         return
 
@@ -167,7 +174,8 @@ class PPOAgent(PGAgent):
             self.exp_mask_tf: np.array([1 if enable_exp else 0])
         }
 
-        a, logp = self.sess.run([self.sample_a_tf, self.sample_a_logp_tf], feed_dict=feed)
+        with tf.device('cpu:0'):
+            a, logp = self.sess.run([self.sample_a_tf, self.sample_a_logp_tf], feed_dict=feed)
         return a, logp
 
     def _train_step(self):
@@ -321,9 +329,9 @@ class PPOAgent(PGAgent):
             self.g_tf: g,
             self.tar_val_tf: tar_vals
         }
-
-        loss, grads = self.sess.run([self.critic_loss_tf, self.critic_grad_tf], feed)
-        self.critic_solver.update(grads)
+        with tf.device('cpu:0'):
+            loss, grads = self.sess.run([self.critic_loss_tf, self.critic_grad_tf], feed)
+            self.critic_solver.update(grads)
         return loss
     
     def _update_actor(self, s, g, a, logp, adv):
@@ -335,9 +343,10 @@ class PPOAgent(PGAgent):
             self.old_logp_tf: logp
         }
 
-        loss, grads, clip_frac = self.sess.run([self.actor_loss_tf, self.actor_grad_tf,
-                                                        self.clip_frac_tf], feed)
-        self.actor_solver.update(grads)
+        with tf.device('cpu:0'):
+            loss, grads, clip_frac = self.sess.run([self.actor_loss_tf, self.actor_grad_tf,
+                                                            self.clip_frac_tf], feed)
+            self.actor_solver.update(grads)
 
         return loss, clip_frac
 
@@ -370,5 +379,6 @@ class PPOAgent(PGAgent):
         feed = {
             self._actor_stepsize_ph: stepsize,
         }
-        self.sess.run(self._actor_stepsize_update_op, feed)
+        with tf.device('cpu:0'):
+            self.sess.run(self._actor_stepsize_update_op, feed)
         return

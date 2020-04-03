@@ -83,9 +83,10 @@ class MPISolver(Solver):
         for v in self.vars:
             shape = v.get_shape()
             grad = np.zeros(shape)
-            grad_tf = tf.placeholder(tf.float32, shape=shape)
-            self._grad_buffers.append(grad)
-            self._grad_tf_list.append(grad_tf)
+            with tf.device('cpu:0'):
+                grad_tf = tf.placeholder(tf.float32, shape=shape)
+                self._grad_buffers.append(grad)
+                self._grad_tf_list.append(grad_tf)
 
         self._grad_feed = dict({g_tf: g for g_tf, g in zip(self._grad_tf_list, self._grad_buffers)})
         

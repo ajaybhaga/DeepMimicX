@@ -53,7 +53,6 @@ def build_arg_parser(args):
 
     return arg_parser
 
-
 def update_intermediate_buffer():
     if not (reshaping):
         if (win_width != world.env.get_win_width() or win_height != world.env.get_win_height()):
@@ -73,6 +72,7 @@ def update_world(world, time_elapsed):
         if valid_episode:
             end_episode = world.env.is_episode_end()
             if (end_episode):
+                Logger.print('[Main] update_world(): End of episode: ' + str(timestep))
                 world.end_episode()
                 world.reset()
                 break
@@ -292,7 +292,9 @@ def setup_draw():
 
 def build_world(args, enable_draw, playback_speed=1):
     arg_parser = build_arg_parser(args)
+    Logger.print('[DeepMimic] Preparing environment.')
     env = DeepMimicEnv(args, enable_draw)
+    Logger.print('[DeepMimic] Preparing RLWorld.')
     world = RLWorld(env, arg_parser)
     world.env.set_playback_speed(playback_speed)
     return world

@@ -6,7 +6,7 @@ from util.logger import Logger
 
 class RLWorld(object):
     def __init__(self, env, arg_parser):
-        #TFUtil.disable_gpu()
+        TFUtil.disable_gpu()
 
         self.env = env
         self.arg_parser = arg_parser

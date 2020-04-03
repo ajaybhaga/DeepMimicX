@@ -1,6 +1,7 @@
 #import tensorflow as tf
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 import tensorflow_addons as tfa
 import numpy as np
@@ -16,6 +17,7 @@ init = tf.compat.v1.keras.initializers.glorot_uniform()
 
 def disable_gpu():
     os.environ["CUDA_VISIBLE_DEVICES"] = '-1'
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     return
 
 def var_shape(x):
@@ -31,21 +33,23 @@ def numel(x):
     return n
 
 def flat_grad(loss, var_list, grad_ys=None):
-    grads = tf.gradients(loss, var_list, grad_ys)
-    return tf.concat([tf.reshape(grad, [numel(v)]) for (v, grad) in zip(var_list, grads)], axis=0)
+    with tf.device('cpu:0'):
+        grads = tf.gradients(loss, var_list, grad_ys)
+        return tf.concat([tf.reshape(grad, [numel(v)]) for (v, grad) in zip(var_list, grads)], axis=0)
 
 def fc_net(input, layers_sizes, activation, reuse=None, flatten=False): # build fully connected network
-    curr_tf = input
-    for i, size in enumerate(layers_sizes):
-        with tf.variable_scope(str(i), reuse=reuse):
-            curr_tf = tf.layers.dense(inputs=curr_tf,
-                                    units=size,
-                                    kernel_initializer='glorot_uniform',
-                                    activation = activation if i < len(layers_sizes)-1 else None)
+    with tf.device('cpu:0'):
+        curr_tf = input
+        for i, size in enumerate(layers_sizes):
+            with tf.variable_scope(str(i), reuse=reuse):
+                    curr_tf = tf.layers.dense(inputs=curr_tf,
+                                            units=size,
+                                            kernel_initializer='glorot_uniform',
+                                            activation = activation if i < len(layers_sizes)-1 else None)
 
-    if flatten:
-        assert layers_sizes[-1] == 1
-        curr_tf = tf.reshape(curr_tf, [-1])
+        if flatten:
+            assert layers_sizes[-1] == 1
+            curr_tf = tf.reshape(curr_tf, [-1])
 
     return curr_tf
 
@@ -55,30 +59,34 @@ def copy(sess, src, dst):
     return
 
 def flat_grad(loss, var_list):
-    grads = tf.gradients(loss, var_list)
-    return tf.concat(axis=0, values=[tf.reshape(grad, [numel(v)])
-        for (v, grad) in zip(var_list, grads)])
+    with tf.device('cpu:0'):
+        grads = tf.gradients(loss, var_list)
+        return tf.concat(axis=0, values=[tf.reshape(grad, [numel(v)])
+            for (v, grad) in zip(var_list, grads)])
 
 
 def calc_logp_gaussian(x_tf, mean_tf, std_tf):
-    dim = tf.to_float(tf.shape(x_tf)[-1])
+    with tf.device('cpu:0'):
+        dim = tf.to_float(tf.shape(x_tf)[-1])
 
-    if mean_tf is None:
-        diff_tf = x_tf
-    else:
-        diff_tf = x_tf - mean_tf
+        if mean_tf is None:
+            diff_tf = x_tf
+        else:
+            diff_tf = x_tf - mean_tf
 
-    logp_tf = -0.5 * tf.reduce_sum(tf.square(diff_tf / std_tf), axis=-1)
-    logp_tf += -0.5 * dim * np.log(2 * np.pi) - tf.reduce_sum(tf.log(std_tf), axis=-1)
+        logp_tf = -0.5 * tf.reduce_sum(tf.square(diff_tf / std_tf), axis=-1)
+        logp_tf += -0.5 * dim * np.log(2 * np.pi) - tf.reduce_sum(tf.log(std_tf), axis=-1)
     
     return logp_tf
 
 def calc_bound_loss(x_tf, bound_min, bound_max):
-    # penalty for violating bounds
-    violation_min = tf.minimum(x_tf - bound_min, 0)
-    violation_max = tf.maximum(x_tf - bound_max, 0)
-    violation = tf.reduce_sum(tf.square(violation_min), axis=-1) + tf.reduce_sum(tf.square(violation_max), axis=-1)
-    loss = 0.5 * tf.reduce_mean(violation)
+
+    with tf.device('cpu:0'):
+        # penalty for violating bounds
+        violation_min = tf.minimum(x_tf - bound_min, 0)
+        violation_max = tf.maximum(x_tf - bound_max, 0)
+        violation = tf.reduce_sum(tf.square(violation_min), axis=-1) + tf.reduce_sum(tf.square(violation_max), axis=-1)
+        loss = 0.5 * tf.reduce_mean(violation)
     return loss
 
 class SetFromFlat(object):
@@ -88,27 +96,30 @@ class SetFromFlat(object):
         total_size = np.sum([intprod(shape) for shape in shapes])
 
         self.sess = sess
-        self.theta = tf.placeholder(dtype,[total_size])
-        start=0
-        assigns = []
+        with tf.device('cpu:0'):
+            self.theta = tf.placeholder(dtype,[total_size])
+            start=0
+            assigns = []
 
-        for (shape,v) in zip(shapes,var_list):
-            size = intprod(shape)
-            assigns.append(tf.assign(v, tf.reshape(self.theta[start:start+size],shape)))
-            start += size
+            for (shape,v) in zip(shapes,var_list):
+                size = intprod(shape)
+                assigns.append(tf.assign(v, tf.reshape(self.theta[start:start+size],shape)))
+                start += size
 
-        self.op = tf.group(*assigns)
+            self.op = tf.group(*assigns)
 
         return
 
     def __call__(self, theta):
-        self.sess.run(self.op, feed_dict={self.theta:theta})
+        with tf.device('cpu:0'):
+            self.sess.run(self.op, feed_dict={self.theta:theta})
         return
 
 class GetFlat(object):
     def __init__(self, sess, var_list):
         self.sess = sess
-        self.op = tf.concat(axis=0, values=[tf.reshape(v, [numel(v)]) for v in var_list])
+        with tf.device('cpu:0'):
+            self.op = tf.concat(axis=0, values=[tf.reshape(v, [numel(v)]) for v in var_list])
         return
 
     def __call__(self):

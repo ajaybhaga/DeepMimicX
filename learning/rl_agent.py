@@ -128,6 +128,7 @@ class RLAgent(ABC):
             self._update_counter += timestep
 
             while self._update_counter >= self.update_period:
+                Logger.print('[RLAgent] Update -> train(): ' + str(self._update_counter) + '/' + str(self.update_period))
                 self._train()
                 self._update_exp_params()
                 self.world.env.set_sample_count(self._total_sample_count)
