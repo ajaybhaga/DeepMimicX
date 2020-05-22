@@ -1,0 +1,2495 @@
+[22;0t]0;IPython: dev/DeepMimicX[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m~/dev/DeepMimicX/DeepMimic.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mrandom[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGL[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGLUT[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGLU[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'OpenGL'
+> [0;32m/home/nekokitty/dev/DeepMimicX/DeepMimic.py[0m(5)[0;36m<module>[0;34m()[0m
+[0;32m      3 [0;31m[0;32mimport[0m [0mrandom[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m      4 [0;31m[0;34m[0m[0m
+[0m[0;32m----> 5 [0;31m[0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGL[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m      6 [0;31m[0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGLUT[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m      7 [0;31m[0;32mfrom[0m [0mOpenGL[0m[0;34m.[0m[0mGLU[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m
+ipdb> 
+----------------------------------------------------------------------------
+PRTE has detected that a parameter given to a command line
+option does not match the expected format:
+
+  Option: n
+  Param:  python3
+
+This is frequently caused by omitting to provide the parameter
+to an option that requires one. Please check the command line and try again.
+----------------------------------------------------------------------------
+WARNING:tensorflow:From /usr/local/lib64/python3.8/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2.2.0
+2020-05-22 13:50:06.008689: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-05-22 13:50:06.026604: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 1799950000 Hz
+2020-05-22 13:50:06.026913: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f88f8000b60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-22 13:50:06.026948: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-05-22 13:50:06.029080: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/nekokitty/dev/freeglut-3.2.1/build/lib/:/usr/local/lib/:/usr/include/openmpi-x86_64/
+2020-05-22 13:50:06.029106: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-05-22 13:50:06.029126: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (localhost.localdomain): /proc/driver/nvidia/version does not exist
+args: ['--arg_file', 'args/train_humanoid3d_crawlB_args.txt']
+load_args(): ['--arg_file', 'args/train_humanoid3d_crawlB_args.txt']
+self._table: {'arg_file': ['args/train_humanoid3d_crawlB_args.txt']}
+Parse string -> check for key: arg_file
+Parse string -> Found string: args/train_humanoid3d_crawlB_args.txt
+arg_file: args/train_humanoid3d_crawlB_args.txt
+load_file(): args/train_humanoid3d_crawlB_args.txt
+arg_strs: ['--scene', 'imitate', '--time_lim_min', '0.5', '--time_lim_max', '0.5', '--time_lim_exp', '0.2', '--time_end_lim_min', '20', '--time_end_lim_max', '20', '--time_end_lim_exp', '50', '--anneal_samples', '32000000', '--num_update_substeps', '10', '--num_sim_substeps', '2', '--world_scale', '4', '--terrain_file', 'data/terrain/plane.txt', '--char_types', 'general', '--character_files', 'data/characters/humanoid3d.txt', '--enable_char_soft_contact', 'false', '--fall_contact_bodies', '0', '1', '2', '--char_ctrls', 'ct_pd', '--char_ctrl_files', 'data/controllers/humanoid3d_ctrl.txt', '--motion_file', 'data/motions/humanoid3d_crawl.txt', '--sync_char_root_pos', 'true', '--sync_char_root_rot', 'false', '--agent_files', 'data/agents/ct_agent_humanoid_ppo.txt', '--output_path', 'output']
+load_args(): ['--scene', 'imitate', '--time_lim_min', '0.5', '--time_lim_max', '0.5', '--time_lim_exp', '0.2', '--time_end_lim_min', '20', '--time_end_lim_max', '20', '--time_end_lim_exp', '50', '--anneal_samples', '32000000', '--num_update_substeps', '10', '--num_sim_substeps', '2', '--world_scale', '4', '--terrain_file', 'data/terrain/plane.txt', '--char_types', 'general', '--character_files', 'data/characters/humanoid3d.txt', '--enable_char_soft_contact', 'false', '--fall_contact_bodies', '0', '1', '2', '--char_ctrls', 'ct_pd', '--char_ctrl_files', 'data/controllers/humanoid3d_ctrl.txt', '--motion_file', 'data/motions/humanoid3d_crawl.txt', '--sync_char_root_pos', 'true', '--sync_char_root_rot', 'false', '--agent_files', 'data/agents/ct_agent_humanoid_ppo.txt', '--output_path', 'output']
+self._table: {'arg_file': ['args/train_humanoid3d_crawlB_args.txt'], 'scene': ['imitate'], 'time_lim_min': ['0.5'], 'time_lim_max': ['0.5'], 'time_lim_exp': ['0.2'], 'time_end_lim_min': ['20'], 'time_end_lim_max': ['20'], 'time_end_lim_exp': ['50'], 'anneal_samples': ['32000000'], 'num_update_substeps': ['10'], 'num_sim_substeps': ['2'], 'world_scale': ['4'], 'terrain_file': ['data/terrain/plane.txt'], 'char_types': ['general'], 'character_files': ['data/characters/humanoid3d.txt'], 'enable_char_soft_contact': ['false'], 'fall_contact_bodies': ['0', '1', '2'], 'char_ctrls': ['ct_pd'], 'char_ctrl_files': ['data/controllers/humanoid3d_ctrl.txt'], 'motion_file': ['data/motions/humanoid3d_crawl.txt'], 'sync_char_root_pos': ['true'], 'sync_char_root_rot': ['false'], 'agent_files': ['data/agents/ct_agent_humanoid_ppo.txt'], 'output_path': ['output']}
+[DeepMimic] Preparing environment.
+DeepMimicX executing @ 13:50:06
+arg[0]: --arg_file
+arg[1]: args/train_humanoid3d_crawlB_args.txt
+Loading from: args/train_humanoid3d_crawlB_args.txt
+Loading file: args/train_humanoid3d_crawlB_args.txt
+Storing value: scene = imitate
+Storing value: time_lim_min = 0.5
+Storing value: time_lim_max = 0.5
+Storing value: time_lim_exp = 0.2
+Storing value: time_end_lim_min = 20
+Storing value: time_end_lim_max = 20
+Storing value: time_end_lim_exp = 50
+Storing value: anneal_samples = 32000000
+Storing value: num_update_substeps = 10
+Storing value: num_sim_substeps = 2
+Storing value: world_scale = 4
+Storing value: terrain_file = data/terrain/plane.txt
+Storing value: char_types = general
+Storing value: character_files = data/characters/humanoid3d.txt
+Storing value: enable_char_soft_contact = false
+Storing value: fall_contact_bodies = 0
+Storing value: char_ctrls = ct_pd
+Storing value: char_ctrl_files = data/controllers/humanoid3d_ctrl.txt
+Storing value: motion_file = data/motions/humanoid3d_crawl.txt
+Storing value: sync_char_root_pos = true
+Storing value: sync_char_root_rot = false
+Storing value: agent_files = data/agents/ct_agent_humanoid_ppo.txt
+Arg scene: imitate
+cSceneSimChar::Init() executed.
+
+Agent Registry
+Num Agents: 1
+Agent 0: ct_pd
+
+cSceneImitate::Init() executed.
+Loaded scene: Imitate
+[DeepMimic] Preparing RLWorld.
+parse_args():
+Agent Files: ['data/agents/ct_agent_humanoid_ppo.txt']
+
+Num Agents: 1
+Agent Files: ['data/agents/ct_agent_humanoid_ppo.txt']
+Parse string -> check for key: output_path
+Parse string -> Found string: output
+Parse string -> check for key: int_output_path
+Agent 0: data/agents/ct_agent_humanoid_ppo.txt
+[TFAgent] Init session -> tf.Graph(), tf.Session(...) called.
+argi: 0
+argi: 1
+argi: 2
+argi: 3
+[TFAgent] Build normalizers -> TFNormalizer (s_norm, g_norm, a_norm) called.
+[TFNormalizer] __init__()
+[TFNormalizer] __init__()
+[TFNormalizer] __init__()
+[TFNormalizer] __init__()
+[PPOAgent] Build nets -> attempting to build actor and critic nets...
+[PPOAgent] Built actor net: fc_2layers_1024units
+[PPOAgent] Built critic net: fc_2layers_1024units
+Logging data to output/agent0_log.txt
+{
+"ID": 0,
+ "Type": "PPO",
+ "ActionSpace": "Continuous",
+ "StateDim": 197,
+ "GoalDim": 0,
+ "ActionDim": 36
+}
+
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000000095/1
+Agent 0
+Samples: 17
+
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000019/1
+[RLAgent] Update -> train(): 1.0000000000000286/1
+[RLAgent] Update -> train(): 1.0000000000000382/1
+[RLAgent] Update -> train(): 1.0000000000000477/1
+[RLAgent] Update -> train(): 1.0000000000000573/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000000668/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000000764/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000086/1
+[RLAgent] Update -> train(): 1.0000000000000955/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000105/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000001146/1
+[RLAgent] Update -> train(): 1.0000000000001241/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000001337/1
+[RLAgent] Update -> train(): 1.0000000000001432/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000001528/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000001623/1
+[RLAgent] Update -> train(): 1.0000000000001719/1
+[RLAgent] Update -> train(): 1.0000000000001814/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000191/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000002005/1
+[RLAgent] Update -> train(): 1.00000000000021/1
+[RLAgent] Update -> train(): 1.0000000000002196/1
+[RLAgent] Update -> train(): 1.0000000000002292/1
+[RLAgent] Update -> train(): 1.0000000000002387/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000002482/1
+[RLAgent] Update -> train(): 1.0000000000002578/1
+[RLAgent] Update -> train(): 1.0000000000002673/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000277/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000002864/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000296/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000003055/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000315/1
+[RLAgent] Update -> train(): 1.0000000000003246/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000003342/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000003437/1
+[RLAgent] Update -> train(): 1.0000000000003533/1
+[RLAgent] Update -> train(): 1.0000000000003628/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000003724/1
+[RLAgent] Update -> train(): 1.000000000000382/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000003915/1
+[RLAgent] Update -> train(): 1.000000000000401/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000004106/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000042/1
+[RLAgent] Update -> train(): 1.0000000000004297/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000004392/1
+[RLAgent] Update -> train(): 1.0000000000004488/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000004583/1
+[RLAgent] Update -> train(): 1.0000000000004678/1
+[RLAgent] Update -> train(): 1.0000000000004774/1
+[RLAgent] Update -> train(): 1.000000000000487/1
+[RLAgent] Update -> train(): 1.0000000000004965/1
+[RLAgent] Update -> train(): 1.000000000000506/1
+[RLAgent] Update -> train(): 1.0000000000005156/1
+[RLAgent] Update -> train(): 1.0000000000005251/1
+[RLAgent] Update -> train(): 1.0000000000005347/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000005442/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000005538/1
+[RLAgent] Update -> train(): 1.0000000000005633/1
+[RLAgent] Update -> train(): 1.0000000000005729/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000005824/1
+[RLAgent] Update -> train(): 1.000000000000592/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006015/1
+[RLAgent] Update -> train(): 1.000000000000611/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006206/1
+[RLAgent] Update -> train(): 1.0000000000006302/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006397/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006493/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006588/1
+[RLAgent] Update -> train(): 1.0000000000006684/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000678/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000006875/1
+[RLAgent] Update -> train(): 1.000000000000697/1
+[RLAgent] Update -> train(): 1.0000000000007065/1
+[RLAgent] Update -> train(): 1.000000000000716/1
+[RLAgent] Update -> train(): 1.0000000000007256/1
+[RLAgent] Update -> train(): 1.0000000000007352/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000007447/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000007543/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000007638/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000007734/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000783/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000007925/1
+[RLAgent] Update -> train(): 1.000000000000802/1
+[RLAgent] Update -> train(): 1.0000000000008116/1
+[RLAgent] Update -> train(): 1.0000000000008211/1
+[RLAgent] Update -> train(): 1.0000000000008307/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000008402/1
+[RLAgent] Update -> train(): 1.0000000000008498/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000008593/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000008689/1
+[RLAgent] Update -> train(): 1.0000000000008784/1
+[RLAgent] Update -> train(): 1.000000000000888/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000008975/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000000907/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000009166/1
+[RLAgent] Update -> train(): 1.0000000000009261/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000009357/1
+[RLAgent] Update -> train(): 1.0000000000009452/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000009548/1
+[RLAgent] Update -> train(): 1.0000000000009643/1
+[RLAgent] Update -> train(): 1.0000000000009739/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000009834/1
+[RLAgent] Update -> train(): 1.000000000000993/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000010025/1
+[RLAgent] Update -> train(): 1.000000000001012/1
+[RLAgent] Update -> train(): 1.0000000000010216/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000010312/1
+[RLAgent] Update -> train(): 1.0000000000010407/1
+[RLAgent] Update -> train(): 1.0000000000010503/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000010598/1
+[RLAgent] Update -> train(): 1.0000000000010694/1
+[RLAgent] Update -> train(): 1.000000000001079/1
+[RLAgent] Update -> train(): 1.0000000000010885/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001098/1
+[RLAgent] Update -> train(): 1.0000000000011076/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001117/1
+[RLAgent] Update -> train(): 1.0000000000011267/1
+[RLAgent] Update -> train(): 1.0000000000011362/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000011458/1
+[RLAgent] Update -> train(): 1.0000000000011553/1
+[RLAgent] Update -> train(): 1.0000000000011648/1
+[RLAgent] Update -> train(): 1.0000000000011744/1
+[RLAgent] Update -> train(): 1.000000000001184/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000011935/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001203/1
+[RLAgent] Update -> train(): 1.0000000000012126/1
+[RLAgent] Update -> train(): 1.0000000000012221/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000012317/1
+[RLAgent] Update -> train(): 1.0000000000012412/1
+[RLAgent] Update -> train(): 1.0000000000012508/1
+[RLAgent] Update -> train(): 1.0000000000012603/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000012699/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000012794/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001289/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000012985/1
+[RLAgent] Update -> train(): 1.000000000001308/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000013176/1
+[RLAgent] Update -> train(): 1.0000000000013272/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000013367/1
+[RLAgent] Update -> train(): 1.0000000000013463/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000013558/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000013654/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001375/1
+[RLAgent] Update -> train(): 1.0000000000013844/1
+[RLAgent] Update -> train(): 1.000000000001394/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000014035/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001413/1
+[RLAgent] Update -> train(): 1.0000000000014226/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000014322/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000014417/1
+[RLAgent] Update -> train(): 1.0000000000014513/1
+[RLAgent] Update -> train(): 1.0000000000014608/1
+[RLAgent] Update -> train(): 1.0000000000014704/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000148/1
+[RLAgent] Update -> train(): 1.0000000000014895/1
+[RLAgent] Update -> train(): 1.000000000001499/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015086/1
+[RLAgent] Update -> train(): 1.0000000000015181/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015277/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015372/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015468/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015563/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000015659/1
+[RLAgent] Update -> train(): 1.0000000000015754/1
+[RLAgent] Update -> train(): 1.000000000001585/1
+[RLAgent] Update -> train(): 1.0000000000015945/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001604/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000016136/1
+[RLAgent] Update -> train(): 1.0000000000016231/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000016327/1
+[RLAgent] Update -> train(): 1.0000000000016422/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000016518/1
+[RLAgent] Update -> train(): 1.0000000000016613/1
+[RLAgent] Update -> train(): 1.0000000000016709/1
+[RLAgent] Update -> train(): 1.0000000000016804/1
+[RLAgent] Update -> train(): 1.00000000000169/1
+[RLAgent] Update -> train(): 1.0000000000016995/1
+[RLAgent] Update -> train(): 1.000000000001709/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000017186/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000017282/1
+[RLAgent] Update -> train(): 1.0000000000017377/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000017473/1
+[RLAgent] Update -> train(): 1.0000000000017568/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000017664/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001776/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000017855/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000001795/1
+[RLAgent] Update -> train(): 1.0000000000018046/1
+[RLAgent] Update -> train(): 1.000000000001814/1
+[RLAgent] Update -> train(): 1.0000000000018237/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000018332/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000018427/1
+[RLAgent] Update -> train(): 1.0000000000018523/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000018618/1
+[RLAgent] Update -> train(): 1.0000000000018714/1
+[RLAgent] Update -> train(): 1.000000000001881/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000018905/1
+[RLAgent] Update -> train(): 1.0000000000019/1
+[RLAgent] Update -> train(): 1.0000000000019096/1
+[RLAgent] Update -> train(): 1.0000000000019191/1
+[RLAgent] Update -> train(): 1.0000000000019287/1
+[RLAgent] Update -> train(): 1.0000000000019382/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000019478/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000019573/1
+[RLAgent] Update -> train(): 1.0000000000019669/1
+[RLAgent] Update -> train(): 1.0000000000019764/1
+[RLAgent] Update -> train(): 1.000000000001986/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000019955/1
+[RLAgent] Update -> train(): 1.000000000002005/1
+[RLAgent] Update -> train(): 1.0000000000020146/1
+[RLAgent] Update -> train(): 1.0000000000020242/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000020337/1
+[RLAgent] Update -> train(): 1.0000000000020433/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000020528/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000020624/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002072/1
+[RLAgent] Update -> train(): 1.0000000000020814/1
+[RLAgent] Update -> train(): 1.000000000002091/1
+[RLAgent] Update -> train(): 1.0000000000021005/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000211/1
+[RLAgent] Update -> train(): 1.0000000000021196/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000021292/1
+[RLAgent] Update -> train(): 1.0000000000021387/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000021483/1
+[RLAgent] Update -> train(): 1.0000000000021578/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000021674/1
+[RLAgent] Update -> train(): 1.000000000002177/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000021865/1
+[RLAgent] Update -> train(): 1.000000000002196/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000022056/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000022151/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000022247/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000022342/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000022438/1
+[RLAgent] Update -> train(): 1.0000000000022533/1
+[RLAgent] Update -> train(): 1.0000000000022629/1
+[RLAgent] Update -> train(): 1.0000000000022724/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002282/1
+[RLAgent] Update -> train(): 1.0000000000022915/1
+[RLAgent] Update -> train(): 1.000000000002301/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000023106/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000023201/1
+[RLAgent] Update -> train(): 1.0000000000023297/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000023392/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000023488/1
+[RLAgent] Update -> train(): 1.0000000000023583/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000023679/1
+[RLAgent] Update -> train(): 1.0000000000023774/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002387/1
+[RLAgent] Update -> train(): 1.0000000000023965/1
+[RLAgent] Update -> train(): 1.000000000002406/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000024156/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000024252/1
+[RLAgent] Update -> train(): 1.0000000000024347/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000024443/1
+[RLAgent] Update -> train(): 1.0000000000024538/1
+[RLAgent] Update -> train(): 1.0000000000024634/1
+[RLAgent] Update -> train(): 1.000000000002473/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000024825/1
+[RLAgent] Update -> train(): 1.000000000002492/1
+[RLAgent] Update -> train(): 1.0000000000025016/1
+[RLAgent] Update -> train(): 1.000000000002511/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000025207/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000025302/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000025397/1
+[RLAgent] Update -> train(): 1.0000000000025493/1
+[RLAgent] Update -> train(): 1.0000000000025588/1
+[RLAgent] Update -> train(): 1.0000000000025684/1
+[RLAgent] Update -> train(): 1.000000000002578/1
+[RLAgent] Update -> train(): 1.0000000000025875/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002597/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000026066/1
+[RLAgent] Update -> train(): 1.0000000000026161/1
+[RLAgent] Update -> train(): 1.0000000000026257/1
+[RLAgent] Update -> train(): 1.0000000000026352/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000026448/1
+[RLAgent] Update -> train(): 1.0000000000026543/1
+[RLAgent] Update -> train(): 1.0000000000026639/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000026734/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002683/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000026925/1
+[RLAgent] Update -> train(): 1.000000000002702/1
+[RLAgent] Update -> train(): 1.0000000000027116/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000027212/1
+[RLAgent] Update -> train(): 1.0000000000027307/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000027403/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000027498/1
+[RLAgent] Update -> train(): 1.0000000000027593/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002769/1
+[RLAgent] Update -> train(): 1.0000000000027784/1
+[RLAgent] Update -> train(): 1.000000000002788/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000027975/1
+[RLAgent] Update -> train(): 1.000000000002807/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000028166/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000028262/1
+[RLAgent] Update -> train(): 1.0000000000028357/1
+[RLAgent] Update -> train(): 1.0000000000028453/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000028548/1
+[RLAgent] Update -> train(): 1.0000000000028644/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002874/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000028835/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002893/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000029026/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000029121/1
+[RLAgent] Update -> train(): 1.0000000000029217/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000029312/1
+[RLAgent] Update -> train(): 1.0000000000029408/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000029503/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000029599/1
+[RLAgent] Update -> train(): 1.0000000000029694/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002979/1
+[RLAgent] Update -> train(): 1.0000000000029885/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000002998/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000030076/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000030171/1
+[RLAgent] Update -> train(): 1.0000000000030267/1
+[RLAgent] Update -> train(): 1.0000000000030362/1
+[RLAgent] Update -> train(): 1.0000000000030458/1
+[RLAgent] Update -> train(): 1.0000000000030553/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000030649/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000030744/1
+[RLAgent] Update -> train(): 1.000000000003084/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000030935/1
+[RLAgent] Update -> train(): 1.000000000003103/1
+[RLAgent] Update -> train(): 1.0000000000031126/1
+[RLAgent] Update -> train(): 1.0000000000031222/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000031317/1
+[RLAgent] Update -> train(): 1.0000000000031413/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000031508/1
+[RLAgent] Update -> train(): 1.0000000000031604/1
+[RLAgent] Update -> train(): 1.00000000000317/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000031795/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003189/1
+[RLAgent] Update -> train(): 1.0000000000031986/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003208/1
+[RLAgent] Update -> train(): 1.0000000000032176/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000032272/1
+[RLAgent] Update -> train(): 1.0000000000032367/1
+[RLAgent] Update -> train(): 1.0000000000032463/1
+[RLAgent] Update -> train(): 1.0000000000032558/1
+[RLAgent] Update -> train(): 1.0000000000032654/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003275/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000032845/1
+[RLAgent] Update -> train(): 1.000000000003294/1
+[RLAgent] Update -> train(): 1.0000000000033036/1
+[RLAgent] Update -> train(): 1.0000000000033131/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000033227/1
+[RLAgent] Update -> train(): 1.0000000000033322/1
+[RLAgent] Update -> train(): 1.0000000000033418/1
+[RLAgent] Update -> train(): 1.0000000000033513/1
+[RLAgent] Update -> train(): 1.0000000000033609/1
+[RLAgent] Update -> train(): 1.0000000000033704/1
+[RLAgent] Update -> train(): 1.00000000000338/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000033895/1
+[RLAgent] Update -> train(): 1.000000000003399/1
+[RLAgent] Update -> train(): 1.0000000000034086/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000034182/1
+[RLAgent] Update -> train(): 1.0000000000034277/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000034373/1
+[RLAgent] Update -> train(): 1.0000000000034468/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000034563/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003466/1
+[RLAgent] Update -> train(): 1.0000000000034754/1
+[RLAgent] Update -> train(): 1.000000000003485/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000034945/1
+[RLAgent] Update -> train(): 1.000000000003504/1
+[RLAgent] Update -> train(): 1.0000000000035136/1
+[RLAgent] Update -> train(): 1.0000000000035232/1
+[RLAgent] Update -> train(): 1.0000000000035327/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000035423/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000035518/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000035614/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003571/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000035805/1
+[RLAgent] Update -> train(): 1.00000000000359/1
+[RLAgent] Update -> train(): 1.0000000000035996/1
+[RLAgent] Update -> train(): 1.0000000000036091/1
+[RLAgent] Update -> train(): 1.0000000000036187/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000036282/1
+[RLAgent] Update -> train(): 1.0000000000036378/1
+[RLAgent] Update -> train(): 1.0000000000036473/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000036569/1
+[RLAgent] Update -> train(): 1.0000000000036664/1
+[RLAgent] Update -> train(): 1.000000000003676/1
+[RLAgent] Update -> train(): 1.0000000000036855/1
+[RLAgent] Update -> train(): 1.000000000003695/1
+[RLAgent] Update -> train(): 1.0000000000037046/1
+[RLAgent] Update -> train(): 1.0000000000037141/1
+[RLAgent] Update -> train(): 1.0000000000037237/1
+[RLAgent] Update -> train(): 1.0000000000037332/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000037428/1
+[RLAgent] Update -> train(): 1.0000000000037523/1
+[RLAgent] Update -> train(): 1.0000000000037619/1
+[RLAgent] Update -> train(): 1.0000000000037714/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003781/1
+[RLAgent] Update -> train(): 1.0000000000037905/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038096/1
+[RLAgent] Update -> train(): 1.0000000000038192/1
+[RLAgent] Update -> train(): 1.0000000000038287/1
+[RLAgent] Update -> train(): 1.0000000000038383/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038478/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038574/1
+[RLAgent] Update -> train(): 1.000000000003867/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038765/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003886/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000038956/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003905/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000039146/1
+[RLAgent] Update -> train(): 1.0000000000039242/1
+[RLAgent] Update -> train(): 1.0000000000039337/1
+[RLAgent] Update -> train(): 1.0000000000039433/1
+[RLAgent] Update -> train(): 1.0000000000039528/1
+[RLAgent] Update -> train(): 1.0000000000039624/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000003972/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000039815/1
+[RLAgent] Update -> train(): 1.000000000003991/1
+[RLAgent] Update -> train(): 1.0000000000040006/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000040101/1
+[RLAgent] Update -> train(): 1.0000000000040197/1
+[RLAgent] Update -> train(): 1.0000000000040292/1
+[RLAgent] Update -> train(): 1.0000000000040388/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000040483/1
+[RLAgent] Update -> train(): 1.0000000000040579/1
+[RLAgent] Update -> train(): 1.0000000000040674/1
+[RLAgent] Update -> train(): 1.000000000004077/1
+[RLAgent] Update -> train(): 1.0000000000040865/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004096/1
+[RLAgent] Update -> train(): 1.0000000000041056/1
+[RLAgent] Update -> train(): 1.0000000000041152/1
+[RLAgent] Update -> train(): 1.0000000000041247/1
+[RLAgent] Update -> train(): 1.0000000000041342/1
+[RLAgent] Update -> train(): 1.0000000000041438/1
+[RLAgent] Update -> train(): 1.0000000000041533/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004163/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000041724/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004182/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000041915/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004201/1
+[RLAgent] Update -> train(): 1.0000000000042106/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000042202/1
+[RLAgent] Update -> train(): 1.0000000000042297/1
+[RLAgent] Update -> train(): 1.0000000000042393/1
+[RLAgent] Update -> train(): 1.0000000000042488/1
+[RLAgent] Update -> train(): 1.0000000000042584/1
+[RLAgent] Update -> train(): 1.000000000004268/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000042775/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004287/1
+[RLAgent] Update -> train(): 1.0000000000042966/1
+[RLAgent] Update -> train(): 1.0000000000043061/1
+[RLAgent] Update -> train(): 1.0000000000043157/1
+[RLAgent] Update -> train(): 1.0000000000043252/1
+[RLAgent] Update -> train(): 1.0000000000043348/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000043443/1
+[RLAgent] Update -> train(): 1.0000000000043539/1
+[RLAgent] Update -> train(): 1.0000000000043634/1
+[RLAgent] Update -> train(): 1.000000000004373/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000043825/1
+[RLAgent] Update -> train(): 1.000000000004392/1
+[RLAgent] Update -> train(): 1.0000000000044016/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000044111/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000044207/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000044302/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000044398/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000044493/1
+[RLAgent] Update -> train(): 1.0000000000044589/1
+[RLAgent] Update -> train(): 1.0000000000044684/1
+[RLAgent] Update -> train(): 1.000000000004478/1
+[RLAgent] Update -> train(): 1.0000000000044875/1
+[RLAgent] Update -> train(): 1.000000000004497/1
+[RLAgent] Update -> train(): 1.0000000000045066/1
+[RLAgent] Update -> train(): 1.0000000000045162/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000045257/1
+[RLAgent] Update -> train(): 1.0000000000045353/1
+[RLAgent] Update -> train(): 1.0000000000045448/1
+[RLAgent] Update -> train(): 1.0000000000045544/1
+[RLAgent] Update -> train(): 1.000000000004564/1
+[RLAgent] Update -> train(): 1.0000000000045735/1
+[RLAgent] Update -> train(): 1.000000000004583/1
+[RLAgent] Update -> train(): 1.0000000000045925/1
+[RLAgent] Update -> train(): 1.000000000004602/1
+[RLAgent] Update -> train(): 1.0000000000046116/1
+[RLAgent] Update -> train(): 1.0000000000046212/1
+[RLAgent] Update -> train(): 1.0000000000046307/1
+[RLAgent] Update -> train(): 1.0000000000046403/1
+[RLAgent] Update -> train(): 1.0000000000046498/1
+[RLAgent] Update -> train(): 1.0000000000046594/1
+[RLAgent] Update -> train(): 1.000000000004669/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000046785/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004688/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000046976/1
+[RLAgent] Update -> train(): 1.0000000000047071/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000047167/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000047262/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000047358/1
+[RLAgent] Update -> train(): 1.0000000000047453/1
+[RLAgent] Update -> train(): 1.0000000000047549/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000047644/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004774/1
+[RLAgent] Update -> train(): 1.0000000000047835/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004793/1
+[RLAgent] Update -> train(): 1.0000000000048026/1
+[RLAgent] Update -> train(): 1.0000000000048122/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000048217/1
+[RLAgent] Update -> train(): 1.0000000000048312/1
+[RLAgent] Update -> train(): 1.0000000000048408/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000048503/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000486/1
+[RLAgent] Update -> train(): 1.0000000000048694/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000004879/1
+[RLAgent] Update -> train(): 1.0000000000048885/1
+[RLAgent] Update -> train(): 1.000000000004898/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000049076/1
+[RLAgent] Update -> train(): 1.0000000000049172/1
+[RLAgent] Update -> train(): 1.0000000000049267/1
+[RLAgent] Update -> train(): 1.0000000000049363/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000049458/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000049554/1
+[RLAgent] Update -> train(): 1.000000000004965/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000049745/1
+[RLAgent] Update -> train(): 1.000000000004984/1
+[RLAgent] Update -> train(): 1.0000000000049936/1
+[RLAgent] Update -> train(): 1.000000000005003/1
+[RLAgent] Update -> train(): 1.0000000000050127/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000050222/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000050318/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000050413/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000050508/1
+[RLAgent] Update -> train(): 1.0000000000050604/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000507/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000050795/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005089/1
+[RLAgent] Update -> train(): 1.0000000000050986/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000051081/1
+[RLAgent] Update -> train(): 1.0000000000051177/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000051272/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000051368/1
+[RLAgent] Update -> train(): 1.0000000000051463/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000051559/1
+[RLAgent] Update -> train(): 1.0000000000051654/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005175/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000051845/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005194/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052036/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052132/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052227/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052323/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052418/1
+[RLAgent] Update -> train(): 1.0000000000052514/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005261/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052705/1
+[RLAgent] Update -> train(): 1.00000000000528/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000052895/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005299/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000053086/1
+[RLAgent] Update -> train(): 1.0000000000053182/1
+[RLAgent] Update -> train(): 1.0000000000053277/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000053373/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000053468/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000053564/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005366/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000053755/1
+[RLAgent] Update -> train(): 1.000000000005385/1
+[RLAgent] Update -> train(): 1.0000000000053946/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054041/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054137/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054232/1
+[RLAgent] Update -> train(): 1.0000000000054328/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054423/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054519/1
+[RLAgent] Update -> train(): 1.0000000000054614/1
+[RLAgent] Update -> train(): 1.000000000005471/1
+[RLAgent] Update -> train(): 1.0000000000054805/1
+[RLAgent] Update -> train(): 1.00000000000549/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000054996/1
+[RLAgent] Update -> train(): 1.0000000000055091/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000055187/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000055282/1
+[RLAgent] Update -> train(): 1.0000000000055378/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000055473/1
+[RLAgent] Update -> train(): 1.0000000000055569/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000055664/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005576/1
+[RLAgent] Update -> train(): 1.0000000000055855/1
+[RLAgent] Update -> train(): 1.000000000005595/1
+[RLAgent] Update -> train(): 1.0000000000056046/1
+[RLAgent] Update -> train(): 1.0000000000056142/1
+[RLAgent] Update -> train(): 1.0000000000056237/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000056333/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000056428/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000056524/1
+[RLAgent] Update -> train(): 1.000000000005662/1
+[RLAgent] Update -> train(): 1.0000000000056715/1
+[RLAgent] Update -> train(): 1.000000000005681/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000056906/1
+[RLAgent] Update -> train(): 1.0000000000057/1
+[RLAgent] Update -> train(): 1.0000000000057097/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000057192/1
+[RLAgent] Update -> train(): 1.0000000000057288/1
+[RLAgent] Update -> train(): 1.0000000000057383/1
+[RLAgent] Update -> train(): 1.0000000000057478/1
+[RLAgent] Update -> train(): 1.0000000000057574/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005767/1
+[RLAgent] Update -> train(): 1.0000000000057765/1
+[RLAgent] Update -> train(): 1.000000000005786/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000057956/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000058051/1
+[RLAgent] Update -> train(): 1.0000000000058147/1
+[RLAgent] Update -> train(): 1.0000000000058242/1
+[RLAgent] Update -> train(): 1.0000000000058338/1
+[RLAgent] Update -> train(): 1.0000000000058433/1
+[RLAgent] Update -> train(): 1.0000000000058529/1
+[RLAgent] Update -> train(): 1.0000000000058624/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005872/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000058815/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005891/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000059006/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000059102/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000059197/1
+[RLAgent] Update -> train(): 1.0000000000059293/1
+[RLAgent] Update -> train(): 1.0000000000059388/1
+[RLAgent] Update -> train(): 1.0000000000059484/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005958/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000059674/1
+[RLAgent] Update -> train(): 1.000000000005977/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000059865/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000005996/1
+[RLAgent] Update -> train(): 1.0000000000060056/1
+[RLAgent] Update -> train(): 1.0000000000060152/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000060247/1
+[RLAgent] Update -> train(): 1.0000000000060343/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000060438/1
+[RLAgent] Update -> train(): 1.0000000000060534/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006063/1
+[RLAgent] Update -> train(): 1.0000000000060725/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006082/1
+[RLAgent] Update -> train(): 1.0000000000060916/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061011/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061107/1
+[RLAgent] Update -> train(): 1.0000000000061202/1
+[RLAgent] Update -> train(): 1.0000000000061298/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061393/1
+[RLAgent] Update -> train(): 1.0000000000061489/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061584/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006168/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061775/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006187/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000061966/1
+[RLAgent] Update -> train(): 1.0000000000062061/1
+[RLAgent] Update -> train(): 1.0000000000062157/1
+[RLAgent] Update -> train(): 1.0000000000062252/1
+[RLAgent] Update -> train(): 1.0000000000062348/1
+[RLAgent] Update -> train(): 1.0000000000062443/1
+[RLAgent] Update -> train(): 1.0000000000062539/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000062634/1
+[RLAgent] Update -> train(): 1.000000000006273/1
+[RLAgent] Update -> train(): 1.0000000000062825/1
+[RLAgent] Update -> train(): 1.000000000006292/1
+[RLAgent] Update -> train(): 1.0000000000063016/1
+[RLAgent] Update -> train(): 1.0000000000063112/1
+[RLAgent] Update -> train(): 1.0000000000063207/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000063303/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000063398/1
+[RLAgent] Update -> train(): 1.0000000000063494/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006359/1
+[RLAgent] Update -> train(): 1.0000000000063685/1
+[RLAgent] Update -> train(): 1.000000000006378/1
+[RLAgent] Update -> train(): 1.0000000000063876/1
+[RLAgent] Update -> train(): 1.000000000006397/1
+[RLAgent] Update -> train(): 1.0000000000064067/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000064162/1
+[RLAgent] Update -> train(): 1.0000000000064257/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000064353/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000064448/1
+Model saved to: output/agent0_model.ckpt
+Agent 0
+-------------------------------------
+|       Iteration |               0 |
+|       Wall_Time |          0.0989 |
+|         Samples |            4113 |
+|    Train_Return |            1.35 |
+|     Test_Return |            1.21 |
+|      State_Mean |           0.117 |
+|       State_Std |            3.53 |
+|       Goal_Mean |               0 |
+|        Goal_Std |               0 |
+|        Exp_Rate |               1 |
+|       Exp_Noise |            0.05 |
+|        Exp_Temp |             0.1 |
+|     Critic_Loss |             nan |
+| Critic_Stepsize |            0.01 |
+|      Actor_Loss |        2.58e+04 |
+|  Actor_Stepsize |         2.5e-06 |
+|       Clip_Frac |               1 |
+|        Adv_Mean |       -14.34526 |
+|         Adv_Std |        96.69402 |
+-------------------------------------
+
+[RLAgent] Update -> train(): 1.0000000000064544/1
+[RLAgent] Update -> train(): 1.000000000006464/1
+[RLAgent] Update -> train(): 1.0000000000064735/1
+[RLAgent] Update -> train(): 1.000000000006483/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000064926/1
+[RLAgent] Update -> train(): 1.0000000000065021/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000065117/1
+[RLAgent] Update -> train(): 1.0000000000065212/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000065308/1
+[RLAgent] Update -> train(): 1.0000000000065403/1
+[RLAgent] Update -> train(): 1.0000000000065499/1
+[RLAgent] Update -> train(): 1.0000000000065594/1
+[RLAgent] Update -> train(): 1.000000000006569/1
+[RLAgent] Update -> train(): 1.0000000000065785/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000006588/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000065976/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000066072/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000066167/1
+[RLAgent] Update -> train(): 1.0000000000066263/1
+[RLAgent] Update -> train(): 1.0000000000066358/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000066454/1
+[RLAgent] Update -> train(): 1.000000000006655/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000066644/1
+[RLAgent] Update -> train(): 1.000000000006674/1
+[RLAgent] Update -> train(): 1.0000000000066835/1
+[RLAgent] Update -> train(): 1.000000000006693/1
+[RLAgent] Update -> train(): 1.0000000000067026/1
+[RLAgent] Update -> train(): 1.0000000000067122/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000067217/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000067313/1
+[RLAgent] Update -> train(): 1.0000000000067408/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000067504/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000676/1
+[RLAgent] Update -> train(): 1.0000000000067695/1
+[RLAgent] Update -> train(): 1.000000000006779/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000067886/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000067981/1
+[RLAgent] Update -> train(): 1.0000000000068077/1
+[RLAgent] Update -> train(): 1.0000000000068172/1
+[RLAgent] Update -> train(): 1.0000000000068268/1
+[RLAgent] Update -> train(): 1.0000000000068363/1
+[RLAgent] Update -> train(): 1.0000000000068459/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000068554/1
+[RLAgent] Update -> train(): 1.000000000006865/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000068745/1
+[RLAgent] Update -> train(): 1.000000000006884/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000068936/1
+[RLAgent] Update -> train(): 1.0000000000069031/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000069127/1
+[RLAgent] Update -> train(): 1.0000000000069222/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000069318/1
+[RLAgent] Update -> train(): 1.0000000000069413/1
+[RLAgent] Update -> train(): 1.0000000000069509/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000069604/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000697/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000069795/1
+[RLAgent] Update -> train(): 1.000000000006989/1
+[RLAgent] Update -> train(): 1.0000000000069986/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000070082/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000070177/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000070273/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000070368/1
+[RLAgent] Update -> train(): 1.0000000000070464/1
+[RLAgent] Update -> train(): 1.000000000007056/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000070655/1
+[RLAgent] Update -> train(): 1.000000000007075/1
+[RLAgent] Update -> train(): 1.0000000000070846/1
+[RLAgent] Update -> train(): 1.000000000007094/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000071037/1
+[RLAgent] Update -> train(): 1.0000000000071132/1
+[RLAgent] Update -> train(): 1.0000000000071227/1
+[RLAgent] Update -> train(): 1.0000000000071323/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000071418/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000071514/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007161/1
+[RLAgent] Update -> train(): 1.0000000000071705/1
+[RLAgent] Update -> train(): 1.00000000000718/1
+[RLAgent] Update -> train(): 1.0000000000071896/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000071991/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000072087/1
+[RLAgent] Update -> train(): 1.0000000000072182/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000072278/1
+[RLAgent] Update -> train(): 1.0000000000072373/1
+[RLAgent] Update -> train(): 1.0000000000072469/1
+[RLAgent] Update -> train(): 1.0000000000072564/1
+[RLAgent] Update -> train(): 1.000000000007266/1
+[RLAgent] Update -> train(): 1.0000000000072755/1
+[RLAgent] Update -> train(): 1.000000000007285/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000072946/1
+[RLAgent] Update -> train(): 1.0000000000073042/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000073137/1
+[RLAgent] Update -> train(): 1.0000000000073233/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000073328/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000073423/1
+[RLAgent] Update -> train(): 1.000000000007352/1
+[RLAgent] Update -> train(): 1.0000000000073614/1
+[RLAgent] Update -> train(): 1.000000000007371/1
+[RLAgent] Update -> train(): 1.0000000000073805/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000739/1
+[RLAgent] Update -> train(): 1.0000000000073996/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000074092/1
+[RLAgent] Update -> train(): 1.0000000000074187/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000074283/1
+[RLAgent] Update -> train(): 1.0000000000074378/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000074474/1
+[RLAgent] Update -> train(): 1.000000000007457/1
+[RLAgent] Update -> train(): 1.0000000000074665/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007476/1
+[RLAgent] Update -> train(): 1.0000000000074856/1
+[RLAgent] Update -> train(): 1.0000000000074951/1
+[RLAgent] Update -> train(): 1.0000000000075047/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000075142/1
+[RLAgent] Update -> train(): 1.0000000000075238/1
+[RLAgent] Update -> train(): 1.0000000000075333/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000075429/1
+[RLAgent] Update -> train(): 1.0000000000075524/1
+[RLAgent] Update -> train(): 1.000000000007562/1
+[RLAgent] Update -> train(): 1.0000000000075715/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007581/1
+[RLAgent] Update -> train(): 1.0000000000075906/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000076001/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000076097/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000076192/1
+[RLAgent] Update -> train(): 1.0000000000076288/1
+[RLAgent] Update -> train(): 1.0000000000076383/1
+[RLAgent] Update -> train(): 1.0000000000076479/1
+[RLAgent] Update -> train(): 1.0000000000076574/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007667/1
+[RLAgent] Update -> train(): 1.0000000000076765/1
+[RLAgent] Update -> train(): 1.000000000007686/1
+[RLAgent] Update -> train(): 1.0000000000076956/1
+[RLAgent] Update -> train(): 1.0000000000077052/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000077147/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000077243/1
+[RLAgent] Update -> train(): 1.0000000000077338/1
+[RLAgent] Update -> train(): 1.0000000000077434/1
+[RLAgent] Update -> train(): 1.000000000007753/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000077625/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007772/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000077816/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007791/1
+[RLAgent] Update -> train(): 1.0000000000078006/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000078102/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000078197/1
+[RLAgent] Update -> train(): 1.0000000000078293/1
+[RLAgent] Update -> train(): 1.0000000000078388/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000078484/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007858/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000078675/1
+[RLAgent] Update -> train(): 1.000000000007877/1
+[RLAgent] Update -> train(): 1.0000000000078866/1
+[RLAgent] Update -> train(): 1.0000000000078961/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000079057/1
+[RLAgent] Update -> train(): 1.0000000000079152/1
+[RLAgent] Update -> train(): 1.0000000000079248/1
+[RLAgent] Update -> train(): 1.0000000000079343/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000079439/1
+[RLAgent] Update -> train(): 1.0000000000079534/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007963/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000079725/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000007982/1
+[RLAgent] Update -> train(): 1.0000000000079916/1
+[RLAgent] Update -> train(): 1.0000000000080012/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000080107/1
+[RLAgent] Update -> train(): 1.0000000000080203/1
+[RLAgent] Update -> train(): 1.0000000000080298/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000080393/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008049/1
+[RLAgent] Update -> train(): 1.0000000000080584/1
+[RLAgent] Update -> train(): 1.000000000008068/1
+[RLAgent] Update -> train(): 1.0000000000080775/1
+[RLAgent] Update -> train(): 1.000000000008087/1
+[RLAgent] Update -> train(): 1.0000000000080966/1
+[RLAgent] Update -> train(): 1.0000000000081062/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081157/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081253/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081348/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081444/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008154/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081635/1
+[RLAgent] Update -> train(): 1.000000000008173/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081826/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000081921/1
+[RLAgent] Update -> train(): 1.0000000000082017/1
+[RLAgent] Update -> train(): 1.0000000000082112/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000082208/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000082303/1
+[RLAgent] Update -> train(): 1.0000000000082399/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000082494/1
+[RLAgent] Update -> train(): 1.000000000008259/1
+[RLAgent] Update -> train(): 1.0000000000082685/1
+[RLAgent] Update -> train(): 1.000000000008278/1
+[RLAgent] Update -> train(): 1.0000000000082876/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000082971/1
+[RLAgent] Update -> train(): 1.0000000000083067/1
+[RLAgent] Update -> train(): 1.0000000000083162/1
+[RLAgent] Update -> train(): 1.0000000000083258/1
+[RLAgent] Update -> train(): 1.0000000000083353/1
+[RLAgent] Update -> train(): 1.0000000000083449/1
+[RLAgent] Update -> train(): 1.0000000000083544/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008364/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000083735/1
+[RLAgent] Update -> train(): 1.000000000008383/1
+[RLAgent] Update -> train(): 1.0000000000083926/1
+[RLAgent] Update -> train(): 1.0000000000084022/1
+[RLAgent] Update -> train(): 1.0000000000084117/1
+[RLAgent] Update -> train(): 1.0000000000084213/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000084308/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000084404/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000000845/1
+[RLAgent] Update -> train(): 1.0000000000084595/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008469/1
+[RLAgent] Update -> train(): 1.0000000000084786/1
+[RLAgent] Update -> train(): 1.000000000008488/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000084976/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000085072/1
+[RLAgent] Update -> train(): 1.0000000000085167/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000085263/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000085358/1
+[RLAgent] Update -> train(): 1.0000000000085454/1
+[RLAgent] Update -> train(): 1.000000000008555/1
+[RLAgent] Update -> train(): 1.0000000000085645/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008574/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000085836/1
+[RLAgent] Update -> train(): 1.0000000000085931/1
+[RLAgent] Update -> train(): 1.0000000000086027/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086122/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086218/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086313/1
+[RLAgent] Update -> train(): 1.0000000000086409/1
+[RLAgent] Update -> train(): 1.0000000000086504/1
+[RLAgent] Update -> train(): 1.00000000000866/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086695/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008679/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086886/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000086982/1
+[RLAgent] Update -> train(): 1.0000000000087077/1
+[RLAgent] Update -> train(): 1.0000000000087172/1
+[RLAgent] Update -> train(): 1.0000000000087268/1
+[RLAgent] Update -> train(): 1.0000000000087363/1
+[RLAgent] Update -> train(): 1.000000000008746/1
+[RLAgent] Update -> train(): 1.0000000000087554/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008765/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000087745/1
+[RLAgent] Update -> train(): 1.000000000008784/1
+[RLAgent] Update -> train(): 1.0000000000087936/1
+[RLAgent] Update -> train(): 1.0000000000088032/1
+[RLAgent] Update -> train(): 1.0000000000088127/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000088223/1
+[RLAgent] Update -> train(): 1.0000000000088318/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000088414/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000008851/1
+[RLAgent] Update -> train(): 1.0000000000088605/1
+[RLAgent] Update -> train(): 1.00000000000887/1
+[RLAgent] Update -> train(): 1.0000000000088796/1
+[RLAgent] Update -> train(): 1.0000000000088891/1
+[RLAgent] Update -> train(): 1.0000000000088987/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089082/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089178/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089273/1
+[RLAgent] Update -> train(): 1.0000000000089369/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089464/1
+[RLAgent] Update -> train(): 1.000000000008956/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089655/1
+[RLAgent] Update -> train(): 1.000000000008975/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089846/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000089941/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000090037/1
+[RLAgent] Update -> train(): 1.0000000000090132/1
+[RLAgent] Update -> train(): 1.0000000000090228/1
+[RLAgent] Update -> train(): 1.0000000000090323/1
+[RLAgent] Update -> train(): 1.0000000000090419/1
+[RLAgent] Update -> train(): 1.0000000000090514/1
+[RLAgent] Update -> train(): 1.000000000009061/1
+[RLAgent] Update -> train(): 1.0000000000090705/1
+[RLAgent] Update -> train(): 1.00000000000908/1
+[RLAgent] Update -> train(): 1.0000000000090896/1
+[RLAgent] Update -> train(): 1.0000000000090992/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000091087/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000091183/1
+[RLAgent] Update -> train(): 1.0000000000091278/1
+[RLAgent] Update -> train(): 1.0000000000091374/1
+[RLAgent] Update -> train(): 1.000000000009147/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000091565/1
+[RLAgent] Update -> train(): 1.000000000009166/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000091755/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009185/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000091946/1
+[RLAgent] Update -> train(): 1.0000000000092042/1
+[RLAgent] Update -> train(): 1.0000000000092137/1
+[RLAgent] Update -> train(): 1.0000000000092233/1
+[RLAgent] Update -> train(): 1.0000000000092328/1
+[RLAgent] Update -> train(): 1.0000000000092424/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009252/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000092615/1
+[RLAgent] Update -> train(): 1.000000000009271/1
+[RLAgent] Update -> train(): 1.0000000000092806/1
+[RLAgent] Update -> train(): 1.0000000000092901/1
+[RLAgent] Update -> train(): 1.0000000000092997/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000093092/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000093188/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000093283/1
+[RLAgent] Update -> train(): 1.0000000000093379/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000093474/1
+[RLAgent] Update -> train(): 1.000000000009357/1
+[RLAgent] Update -> train(): 1.0000000000093665/1
+[RLAgent] Update -> train(): 1.000000000009376/1
+[RLAgent] Update -> train(): 1.0000000000093856/1
+[RLAgent] Update -> train(): 1.0000000000093952/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000094047/1
+[RLAgent] Update -> train(): 1.0000000000094142/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000094238/1
+[RLAgent] Update -> train(): 1.0000000000094333/1
+[RLAgent] Update -> train(): 1.000000000009443/1
+[RLAgent] Update -> train(): 1.0000000000094524/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009462/1
+[RLAgent] Update -> train(): 1.0000000000094715/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009481/1
+[RLAgent] Update -> train(): 1.0000000000094906/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000095002/1
+[RLAgent] Update -> train(): 1.0000000000095097/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000095193/1
+[RLAgent] Update -> train(): 1.0000000000095288/1
+[RLAgent] Update -> train(): 1.0000000000095384/1
+[RLAgent] Update -> train(): 1.000000000009548/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000095575/1
+[RLAgent] Update -> train(): 1.000000000009567/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000095766/1
+[RLAgent] Update -> train(): 1.000000000009586/1
+[RLAgent] Update -> train(): 1.0000000000095957/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000096052/1
+[RLAgent] Update -> train(): 1.0000000000096148/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000096243/1
+[RLAgent] Update -> train(): 1.0000000000096338/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000096434/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009653/1
+[RLAgent] Update -> train(): 1.0000000000096625/1
+[RLAgent] Update -> train(): 1.000000000009672/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000096816/1
+[RLAgent] Update -> train(): 1.0000000000096911/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000097007/1
+[RLAgent] Update -> train(): 1.0000000000097102/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000097198/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000097293/1
+[RLAgent] Update -> train(): 1.0000000000097389/1
+[RLAgent] Update -> train(): 1.0000000000097484/1
+[RLAgent] Update -> train(): 1.000000000009758/1
+[RLAgent] Update -> train(): 1.0000000000097675/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009777/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000097866/1
+[RLAgent] Update -> train(): 1.0000000000097962/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000098057/1
+[RLAgent] Update -> train(): 1.0000000000098153/1
+[RLAgent] Update -> train(): 1.0000000000098248/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000098344/1
+[RLAgent] Update -> train(): 1.000000000009844/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000098535/1
+[RLAgent] Update -> train(): 1.000000000009863/1
+[RLAgent] Update -> train(): 1.0000000000098725/1
+[RLAgent] Update -> train(): 1.000000000009882/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000098916/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000099012/1
+[RLAgent] Update -> train(): 1.0000000000099107/1
+[RLAgent] Update -> train(): 1.0000000000099203/1
+[RLAgent] Update -> train(): 1.0000000000099298/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000099394/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000009949/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000099585/1
+[RLAgent] Update -> train(): 1.000000000009968/1
+[RLAgent] Update -> train(): 1.0000000000099776/1
+[RLAgent] Update -> train(): 1.0000000000099871/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000099967/1
+[RLAgent] Update -> train(): 1.0000000000100062/1
+[RLAgent] Update -> train(): 1.0000000000100158/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000100253/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000100349/1
+[RLAgent] Update -> train(): 1.0000000000100444/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010054/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000100635/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010073/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000100826/1
+[RLAgent] Update -> train(): 1.0000000000100921/1
+[RLAgent] Update -> train(): 1.0000000000101017/1
+[RLAgent] Update -> train(): 1.0000000000101112/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000101208/1
+[RLAgent] Update -> train(): 1.0000000000101303/1
+[RLAgent] Update -> train(): 1.0000000000101399/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000101494/1
+[RLAgent] Update -> train(): 1.000000000010159/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000101685/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010178/1
+[RLAgent] Update -> train(): 1.0000000000101876/1
+[RLAgent] Update -> train(): 1.0000000000101972/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000102067/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000102163/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000102258/1
+[RLAgent] Update -> train(): 1.0000000000102354/1
+[RLAgent] Update -> train(): 1.000000000010245/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000102545/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010264/1
+[RLAgent] Update -> train(): 1.0000000000102736/1
+[RLAgent] Update -> train(): 1.000000000010283/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000102927/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000103022/1
+[RLAgent] Update -> train(): 1.0000000000103118/1
+[RLAgent] Update -> train(): 1.0000000000103213/1
+[RLAgent] Update -> train(): 1.0000000000103308/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000103404/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000001035/1
+[RLAgent] Update -> train(): 1.0000000000103595/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010369/1
+[RLAgent] Update -> train(): 1.0000000000103786/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000103881/1
+[RLAgent] Update -> train(): 1.0000000000103977/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000104072/1
+[RLAgent] Update -> train(): 1.0000000000104168/1
+[RLAgent] Update -> train(): 1.0000000000104263/1
+[RLAgent] Update -> train(): 1.0000000000104359/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000104454/1
+[RLAgent] Update -> train(): 1.000000000010455/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000104645/1
+[RLAgent] Update -> train(): 1.000000000010474/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000104836/1
+[RLAgent] Update -> train(): 1.0000000000104932/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000105027/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000105123/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000105218/1
+[RLAgent] Update -> train(): 1.0000000000105314/1
+[RLAgent] Update -> train(): 1.000000000010541/1
+[RLAgent] Update -> train(): 1.0000000000105504/1
+[RLAgent] Update -> train(): 1.00000000001056/1
+[RLAgent] Update -> train(): 1.0000000000105695/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010579/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000105886/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000105982/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000106077/1
+[RLAgent] Update -> train(): 1.0000000000106173/1
+[RLAgent] Update -> train(): 1.0000000000106268/1
+[RLAgent] Update -> train(): 1.0000000000106364/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010646/1
+[RLAgent] Update -> train(): 1.0000000000106555/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010665/1
+[RLAgent] Update -> train(): 1.0000000000106746/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000106841/1
+[RLAgent] Update -> train(): 1.0000000000106937/1
+[RLAgent] Update -> train(): 1.0000000000107032/1
+[RLAgent] Update -> train(): 1.0000000000107128/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000107223/1
+[RLAgent] Update -> train(): 1.0000000000107319/1
+[RLAgent] Update -> train(): 1.0000000000107414/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000010751/1
+[RLAgent] Update -> train(): 1.0000000000107605/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000001077/1
+[RLAgent] Update -> train(): 1.0000000000107796/1
+[RLAgent] Update -> train(): 1.0000000000107891/1
+[RLAgent] Update -> train(): 1.0000000000107987/1
+[RLAgent] Update -> train(): 1.0000000000108082/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000108178/1
+[RLAgent] Update -> train(): 1.0000000000108273/1
+[RLAgent] Update -> train(): 1.0000000000108369/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000108464/1
+[RLAgent] Update -> train(): 1.000000000010856/1
+[RLAgent] Update -> train(): 1.0000000000108655/1
+[RLAgent] Update -> train(): 1.000000000010875/1
+[RLAgent] Update -> train(): 1.0000000000108846/1
+[RLAgent] Update -> train(): 1.0000000000108942/1
+[RLAgent] Update -> train(): 1.0000000000109037/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000109133/1
+[RLAgent] Update -> train(): 1.0000000000109228/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000109324/1
+[RLAgent] Update -> train(): 1.000000000010942/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000109515/1
+[RLAgent] Update -> train(): 1.000000000010961/1
+[RLAgent] Update -> train(): 1.0000000000109706/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000001098/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000109897/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000109992/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110087/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110183/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110278/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110374/1
+[RLAgent] Update -> train(): 1.000000000011047/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110565/1
+[RLAgent] Update -> train(): 1.000000000011066/1
+[RLAgent] Update -> train(): 1.0000000000110756/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110851/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000110947/1
+[RLAgent] Update -> train(): 1.0000000000111042/1
+[RLAgent] Update -> train(): 1.0000000000111138/1
+[RLAgent] Update -> train(): 1.0000000000111233/1
+[RLAgent] Update -> train(): 1.0000000000111329/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000111424/1
+[RLAgent] Update -> train(): 1.000000000011152/1
+[RLAgent] Update -> train(): 1.0000000000111615/1
+[RLAgent] Update -> train(): 1.000000000011171/1
+[RLAgent] Update -> train(): 1.0000000000111806/1
+[RLAgent] Update -> train(): 1.0000000000111902/1
+[RLAgent] Update -> train(): 1.0000000000111997/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000112093/1
+[RLAgent] Update -> train(): 1.0000000000112188/1
+[RLAgent] Update -> train(): 1.0000000000112284/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011238/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000112474/1
+[RLAgent] Update -> train(): 1.000000000011257/1
+[RLAgent] Update -> train(): 1.0000000000112665/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011276/1
+[RLAgent] Update -> train(): 1.0000000000112856/1
+[RLAgent] Update -> train(): 1.0000000000112952/1
+[RLAgent] Update -> train(): 1.0000000000113047/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000113143/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000113238/1
+[RLAgent] Update -> train(): 1.0000000000113334/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011343/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000113525/1
+[RLAgent] Update -> train(): 1.000000000011362/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000113716/1
+[RLAgent] Update -> train(): 1.0000000000113811/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000113907/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000114002/1
+[RLAgent] Update -> train(): 1.0000000000114098/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000114193/1
+[RLAgent] Update -> train(): 1.0000000000114289/1
+[RLAgent] Update -> train(): 1.0000000000114384/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011448/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000114575/1
+[RLAgent] Update -> train(): 1.000000000011467/1
+[RLAgent] Update -> train(): 1.0000000000114766/1
+[RLAgent] Update -> train(): 1.0000000000114861/1
+[RLAgent] Update -> train(): 1.0000000000114957/1
+[RLAgent] Update -> train(): 1.0000000000115052/1
+[RLAgent] Update -> train(): 1.0000000000115148/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000115243/1
+[RLAgent] Update -> train(): 1.0000000000115339/1
+[RLAgent] Update -> train(): 1.0000000000115434/1
+[RLAgent] Update -> train(): 1.000000000011553/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000115625/1
+[RLAgent] Update -> train(): 1.000000000011572/1
+[RLAgent] Update -> train(): 1.0000000000115816/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000115912/1
+[RLAgent] Update -> train(): 1.0000000000116007/1
+[RLAgent] Update -> train(): 1.0000000000116103/1
+[RLAgent] Update -> train(): 1.0000000000116198/1
+[RLAgent] Update -> train(): 1.0000000000116294/1
+[RLAgent] Update -> train(): 1.000000000011639/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000116485/1
+[RLAgent] Update -> train(): 1.000000000011658/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000116676/1
+[RLAgent] Update -> train(): 1.000000000011677/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000116867/1
+[RLAgent] Update -> train(): 1.0000000000116962/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000117057/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000117153/1
+[RLAgent] Update -> train(): 1.0000000000117248/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000117344/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011744/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000117535/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011763/1
+[RLAgent] Update -> train(): 1.0000000000117726/1
+[RLAgent] Update -> train(): 1.0000000000117821/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000117917/1
+[RLAgent] Update -> train(): 1.0000000000118012/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000118108/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000118203/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000118299/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000118394/1
+[RLAgent] Update -> train(): 1.000000000011849/1
+[RLAgent] Update -> train(): 1.0000000000118585/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011868/1
+[RLAgent] Update -> train(): 1.0000000000118776/1
+[RLAgent] Update -> train(): 1.0000000000118872/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000118967/1
+[RLAgent] Update -> train(): 1.0000000000119063/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000119158/1
+[RLAgent] Update -> train(): 1.0000000000119253/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011935/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000119444/1
+[RLAgent] Update -> train(): 1.000000000011954/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000119635/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000011973/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000119826/1
+[RLAgent] Update -> train(): 1.0000000000119922/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000120017/1
+[RLAgent] Update -> train(): 1.0000000000120113/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000120208/1
+[RLAgent] Update -> train(): 1.0000000000120304/1
+[RLAgent] Update -> train(): 1.00000000001204/1
+[RLAgent] Update -> train(): 1.0000000000120495/1
+[RLAgent] Update -> train(): 1.000000000012059/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000120686/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000120781/1
+[RLAgent] Update -> train(): 1.0000000000120877/1
+[RLAgent] Update -> train(): 1.0000000000120972/1
+[RLAgent] Update -> train(): 1.0000000000121068/1
+[RLAgent] Update -> train(): 1.0000000000121163/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000121259/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000121354/1
+[RLAgent] Update -> train(): 1.000000000012145/1
+[RLAgent] Update -> train(): 1.0000000000121545/1
+[RLAgent] Update -> train(): 1.000000000012164/1
+[RLAgent] Update -> train(): 1.0000000000121736/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000121831/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000121927/1
+[RLAgent] Update -> train(): 1.0000000000122022/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000122118/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000122213/1
+[RLAgent] Update -> train(): 1.0000000000122309/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000122404/1
+[RLAgent] Update -> train(): 1.00000000001225/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000122595/1
+[RLAgent] Update -> train(): 1.000000000012269/1
+[RLAgent] Update -> train(): 1.0000000000122786/1
+[RLAgent] Update -> train(): 1.0000000000122882/1
+[RLAgent] Update -> train(): 1.0000000000122977/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000123073/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000123168/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000123264/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012336/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000123455/1
+[RLAgent] Update -> train(): 1.000000000012355/1
+[RLAgent] Update -> train(): 1.0000000000123646/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012374/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000123836/1
+[RLAgent] Update -> train(): 1.0000000000123932/1
+[RLAgent] Update -> train(): 1.0000000000124027/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000124123/1
+[RLAgent] Update -> train(): 1.0000000000124218/1
+[RLAgent] Update -> train(): 1.0000000000124314/1
+[RLAgent] Update -> train(): 1.000000000012441/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000124505/1
+[RLAgent] Update -> train(): 1.00000000001246/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000124696/1
+[RLAgent] Update -> train(): 1.0000000000124791/1
+[RLAgent] Update -> train(): 1.0000000000124887/1
+[RLAgent] Update -> train(): 1.0000000000124982/1
+[RLAgent] Update -> train(): 1.0000000000125078/1
+[RLAgent] Update -> train(): 1.0000000000125173/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000125269/1
+[RLAgent] Update -> train(): 1.0000000000125364/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012546/1
+[RLAgent] Update -> train(): 1.0000000000125555/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012565/1
+[RLAgent] Update -> train(): 1.0000000000125746/1
+[RLAgent] Update -> train(): 1.0000000000125842/1
+[RLAgent] Update -> train(): 1.0000000000125937/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126033/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126128/1
+[RLAgent] Update -> train(): 1.0000000000126223/1
+[RLAgent] Update -> train(): 1.000000000012632/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126414/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012651/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126605/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.00000000001267/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126796/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000126892/1
+[RLAgent] Update -> train(): 1.0000000000126987/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000127083/1
+[RLAgent] Update -> train(): 1.0000000000127178/1
+[RLAgent] Update -> train(): 1.0000000000127274/1
+[RLAgent] Update -> train(): 1.000000000012737/1
+[RLAgent] Update -> train(): 1.0000000000127465/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012756/1
+[RLAgent] Update -> train(): 1.0000000000127656/1
+[RLAgent] Update -> train(): 1.0000000000127751/1
+[RLAgent] Update -> train(): 1.0000000000127847/1
+[RLAgent] Update -> train(): 1.0000000000127942/1
+[RLAgent] Update -> train(): 1.0000000000128038/1
+[RLAgent] Update -> train(): 1.0000000000128133/1
+[RLAgent] Update -> train(): 1.0000000000128229/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000128324/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000012842/1
+Agent 0
+-------------------------------------
+|       Iteration |               1 |
+|       Wall_Time |           0.215 |
+|         Samples |            8213 |
+|    Train_Return |            1.58 |
+|     Test_Return |            1.21 |
+|      State_Mean |           0.107 |
+|       State_Std |            3.53 |
+|       Goal_Mean |               0 |
+|        Goal_Std |               0 |
+|        Exp_Rate |               1 |
+|       Exp_Noise |            0.05 |
+|        Exp_Temp |          0.0999 |
+|     Critic_Loss |             nan |
+| Critic_Stepsize |            0.01 |
+|      Actor_Loss |        1.77e+05 |
+|  Actor_Stepsize |         2.5e-06 |
+|       Clip_Frac |               1 |
+|        Adv_Mean |       25.827726 |
+|         Adv_Std |       149.49536 |
+-------------------------------------
+
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000128515/1
+[RLAgent] Update -> train(): 1.000000000012861/1
+[RLAgent] Update -> train(): 1.0000000000128706/1
+[RLAgent] Update -> train(): 1.0000000000128801/1
+[RLAgent] Update -> train(): 1.0000000000128897/1
+[RLAgent] Update -> train(): 1.0000000000128992/1
+[RLAgent] Update -> train(): 1.0000000000129088/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000129183/1
+[RLAgent] Update -> train(): 1.0000000000129279/1
+[RLAgent] Update -> train(): 1.0000000000129374/1
+[RLAgent] Update -> train(): 1.000000000012947/1
+[RLAgent] Update -> train(): 1.0000000000129565/1
+[RLAgent] Update -> train(): 1.000000000012966/1
+[RLAgent] Update -> train(): 1.0000000000129756/1
+[RLAgent] Update -> train(): 1.0000000000129852/1
+[RLAgent] Update -> train(): 1.0000000000129947/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000130043/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000130138/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000130234/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000013033/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000130425/1
+[RLAgent] Update -> train(): 1.000000000013052/1
+[RLAgent] Update -> train(): 1.0000000000130616/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.000000000013071/1
+[Main] update_world(): End of episode: 0.0016666666666666666
+[Main] update_world(): End of episode: 0.0016666666666666666
+[RLAgent] Update -> train(): 1.0000000000130806/1
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 0 with PID 0 on node localhost exited on signal 15 (Terminated).
+--------------------------------------------------------------------------
